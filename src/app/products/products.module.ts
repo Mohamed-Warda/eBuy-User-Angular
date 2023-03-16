@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ProductDetailsComponent } from './components/product-details/product-details.component';
 import { ProductListComponent } from './components/product-list/product-list.component';
+import { NgbRatingModule} from '@ng-bootstrap/ng-bootstrap'; 
 
 
 
@@ -11,7 +12,8 @@ import { ProductListComponent } from './components/product-list/product-list.com
     ProductListComponent
   ],
   imports: [
-    CommonModule
-  ]
+    CommonModule,NgbRatingModule
+  ],
+  exports:[ProductListComponent]
 })
 export class ProductsModule { }
