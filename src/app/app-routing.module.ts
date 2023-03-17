@@ -4,8 +4,14 @@ import { ProductListComponent } from './products/components/product-list/product
 
 
 const routes:Routes=[
-  {path:'product',component:ProductListComponent}
-]
+  // Home , ProductListComponent , productPage , Cart , 404
+  {path:'product',component:ProductListComponent},
+
+  // { path:'productDetail/:id',component:ProductDetailComponent},
+  // { path:'cart',component:CartComponent},
+  // { path:'checkout',component:CheckoutComponent},
+
+  {path:'',redirectTo:'product',pathMatch:'full'},]
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
