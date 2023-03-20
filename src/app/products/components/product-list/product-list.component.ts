@@ -35,6 +35,54 @@ export class ProductListComponent {
     
   }
 
+  filterByPrice(min: any , max: any){
+    let filteredProducts =[];
+    this.ProductsService.getAllProducts().subscribe((res) => {
+      filteredProducts = res.data.filter((product: any) => {
+        return product.priceAfterDiscount>=min && product.priceAfterDiscount<=max;
+      });
+      console.log(filteredProducts);
+      this.products = filteredProducts;
+    });
+    
+  }
+
+  filterByRating(rating : any){
+    let filteredProducts =[];
+    this.ProductsService.getAllProducts().subscribe((res) => {
+      filteredProducts = res.data.filter((product: any) => {
+        return product.ratingsAverage >= rating;
+      });
+      console.log(filteredProducts);
+      this.products = filteredProducts;
+    });
+    
+  }
+
+  sortFromLowToHigh(){
+    let sortedProducts =[];
+    this.ProductsService.getAllProducts().subscribe((res) => {
+      sortedProducts = res.data.sort((a: any, b: any) => {
+        return a.priceAfterDiscount - b.priceAfterDiscount;
+      });
+      console.log(sortedProducts);
+      this.products = sortedProducts;
+    });
+
+  }
+
+  sortFromHighToLow(){
+    let sortedProducts =[];
+    this.ProductsService.getAllProducts().subscribe((res) => {
+      sortedProducts = res.data.sort((a: any, b: any) => {
+        return b.priceAfterDiscount - a.priceAfterDiscount;
+      });
+      console.log(sortedProducts);
+      this.products = sortedProducts;
+    });
+
+  }
+
   constructor(private ProductsService: ProductsService) {}
 
   ngOnInit(): void {
