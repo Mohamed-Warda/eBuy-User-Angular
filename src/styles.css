@@ -5,3 +5,10 @@
     margin: 0;
 }
 
+.page-item.active .page-link{
+    background-color: #FFD333 !important;
+    border-color: #FFD333 !important;
+  }
+  .visually-hidden{
+    display: none;
+  }

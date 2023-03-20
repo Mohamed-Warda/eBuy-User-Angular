@@ -8,6 +8,8 @@ const routes:Routes=[
   {path:'product',component:ProductListComponent},
   {path:'cart',component:CartComponent},
   {path:'wishing-list',component:WishListComponent},
+  {path:'',redirectTo:'product',pathMatch:'full'}
+
 ]
 
 @NgModule({
