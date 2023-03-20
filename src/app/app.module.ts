@@ -8,6 +8,8 @@ import { AppComponent } from './app.component';
 import { ProductsModule } from './products/products.module';
 import { SharedModule } from './shared/shared.module';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { CartModule } from './cart/cart.module';
+import { WishlistModule } from './wishlist/wishlist.module';
 
 
 
@@ -23,7 +25,9 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     SharedModule,
     ProductsModule,
     HttpClientModule,
-    NgbModule
+    NgbModule,
+    CartModule,
+    WishlistModule
     
   ],
   providers: [],

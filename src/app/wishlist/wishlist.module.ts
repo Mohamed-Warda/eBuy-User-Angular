@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { WishListComponent } from './wish-list/wish-list.component';
+import { BrowserModule } from '@angular/platform-browser';
 
 
 
@@ -9,7 +10,8 @@ import { WishListComponent } from './wish-list/wish-list.component';
     WishListComponent
   ],
   imports: [
-    CommonModule
+    CommonModule 
   ]
+  
 })
 export class WishlistModule { }

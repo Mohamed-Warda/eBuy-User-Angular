@@ -18,12 +18,6 @@ export class ProductListComponent {
   {
     this.ProductsService.getAllProducts().subscribe(res=>{
       this.products=res.data;
-      console.log(this.products[0])
-      console.log(this.products[1].imageCover)
-      console.log(this.products[1].description)
-      console.log(this.products[0].description)
-      console.log(this.products[0].imageCover)
-     
 
     })
   }
