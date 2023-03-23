@@ -8,6 +8,7 @@ import { ProductsModule } from './products/products.module';
 import { SharedModule } from './shared/shared.module';
 import { CartModule } from './cart/cart.module';
 import { WishlistModule } from './wishlist/wishlist.module';
+import { HomeModule } from './home/home.module';
 import { NgbAlertModule, NgbModule, NgbPagination, NgbPaginationModule , } from '@ng-bootstrap/ng-bootstrap';
 import { UserModule } from './user/user.module';
 import { FormsModule } from '@angular/forms';
@@ -22,7 +23,8 @@ import { FormsModule } from '@angular/forms';
     AppComponent
  
     
-    
+  
+        
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 
@@ -39,7 +41,9 @@ import { FormsModule } from '@angular/forms';
     NgbAlertModule,
     NgbPagination,
     UserModule,
-    FormsModule
+    FormsModule,
+    HomeModule,
+  
 
 
     

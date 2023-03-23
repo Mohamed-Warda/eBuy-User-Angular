@@ -21,4 +21,5 @@ export interface IProduct {
   categories: {
     name: String;
   };
+  
 }
