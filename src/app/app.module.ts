@@ -8,6 +8,7 @@ import { ProductsModule } from './products/products.module';
 import { SharedModule } from './shared/shared.module';
 import { CartModule } from './cart/cart.module';
 import { WishlistModule } from './wishlist/wishlist.module';
+import { HomeModule } from './home/home.module';
 import { NgbAlertModule, NgbModule, NgbPagination, NgbPaginationModule , } from '@ng-bootstrap/ng-bootstrap';
 //import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 //import { NgbPaginationModule, NgbAlertModule } from '@ng-bootstrap/ng-bootstrap';
@@ -18,8 +19,7 @@ import { NgbAlertModule, NgbModule, NgbPagination, NgbPaginationModule , } from 
 @NgModule({
   declarations: [
     AppComponent,
-    
-    
+        
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 
@@ -34,7 +34,9 @@ import { NgbAlertModule, NgbModule, NgbPagination, NgbPaginationModule , } from 
     WishlistModule,
     NgbPaginationModule,
     NgbAlertModule,
-    NgbPagination
+    NgbPagination,
+    HomeModule,
+  
 
 
     

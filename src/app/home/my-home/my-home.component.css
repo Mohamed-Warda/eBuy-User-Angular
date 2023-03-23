@@ -1,5 +1,3 @@
-/* You can add global styles to this file, and also import other style files */
-/* You can add global styles to this file, and also import other style files */
 /******* Bootstrap Theming ********/
 /*!
  * Bootstrap v4.5.3 (https://getbootstrap.com/)
@@ -7,15 +5,6 @@
  * Copyright 2011-2020 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
  */
-
- .fa-heart:hover {
-  content: "\f004";
-  color: red;
-}
-/*
-end
-test
-*/
  :root {
     --blue: #007bff;
     --indigo: #6610f2;
@@ -9721,32 +9710,4 @@ test
       transform: translateY(-15px);
     }
   }
-  /* span{
-    display: none;
-  } */
-
   
-*{
-    padding: 0;
-    margin: 0;
-}
-
-.page-item.active .page-link{
-    background-color: #FFD333 !important;
-    border-color: #FFD333 !important;
-  }
-  .visually-hidden{
-    display: none;
-  }
-*{
-    padding: 0;
-    margin: 0;
-}
-
-.page-item.active .page-link{
-    background-color: #FFD333 !important;
-    border-color: #FFD333 !important;
-  }
-  .visually-hidden{
-    display: none;
-  }
