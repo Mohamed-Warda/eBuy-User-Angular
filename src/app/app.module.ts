@@ -9,6 +9,8 @@ import { SharedModule } from './shared/shared.module';
 import { CartModule } from './cart/cart.module';
 import { WishlistModule } from './wishlist/wishlist.module';
 import { NgbAlertModule, NgbModule, NgbPagination, NgbPaginationModule , } from '@ng-bootstrap/ng-bootstrap';
+import { UserModule } from './user/user.module';
+import { FormsModule } from '@angular/forms';
 //import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 //import { NgbPaginationModule, NgbAlertModule } from '@ng-bootstrap/ng-bootstrap';
 //import {NgbPaginationModule, NgbAlertModule} from '@ng-bootstrap/ng-bootstrap';
@@ -17,7 +19,8 @@ import { NgbAlertModule, NgbModule, NgbPagination, NgbPaginationModule , } from 
 
 @NgModule({
   declarations: [
-    AppComponent,
+    AppComponent
+ 
     
     
   ],
@@ -34,7 +37,9 @@ import { NgbAlertModule, NgbModule, NgbPagination, NgbPaginationModule , } from 
     WishlistModule,
     NgbPaginationModule,
     NgbAlertModule,
-    NgbPagination
+    NgbPagination,
+    UserModule,
+    FormsModule
 
 
     
