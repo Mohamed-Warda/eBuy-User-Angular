@@ -1,0 +1,35 @@
+<div class="p-3 py-5"  >
+                  <!--start of add address-->
+
+
+
+
+
+                  <div class="d-flex justify-content-between align-items-center mb-3" >
+                    <h4 class="text-right">Addresses </h4>
+                </div>
+                <div class="col-md-12" *ngFor="let address  of user.addresses; let i= index"><label class="labels">Address {{i+1}}</label><input *ngIf="address.alias"  type="text" class="form-control" disabled [value]="address.alias+ '  ,'+address.details+'  ,Phone : '+address.phone||''"></div>
+                 
+                <div class="my-5 mx-3">
+                    <button type="button" (click)="newAddress=true" *ngIf="!newAddress" class=" btn btn-warning"  > Add New Adress  </button>
+                </div>
+                <form (ngSubmit)="addAddress()" *ngIf="newAddress">
+               
+                  <div class="form-group">
+                    <label >Address Title</label>
+                    <input type="governorate" name="gov" [(ngModel)]="addressTitle" class="form-control" >
+                  </div>
+                  <div class="form-group">
+                    <label >Phone</label>
+                    <input type="phone" name="gov" [(ngModel)]="phoneNum" class="form-control" >
+                  </div>
+                  <div class="mb-3">
+                    <label  class="form-label">Details </label>
+                    <textarea class="form-control" name="details" [(ngModel)]="details"  rows="3"></textarea>
+                  </div>
+                  
+                
+                  <button type="submit" class="btn btn-warning">New Address</button>
+                </form>
+                                  <!--end of add address-->
+</div>

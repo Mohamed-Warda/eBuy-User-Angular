@@ -1,0 +1,20 @@
+.button {
+    background-color: #ccc;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+  }
+  
+  .active {
+    background-color: yellow !important;
+    color: black !important;
+  }
+  
+  .button-group {
+    display: flex;
+  }
+  
+  .button-group button:not(:last-child) {
+    margin-right: 10px;
+  }

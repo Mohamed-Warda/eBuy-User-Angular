@@ -10,7 +10,7 @@ export class CartService {
   private httpOptions = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json',
-      'Authorization': 'Bearer ' + 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NDBmNTMyMWM0ZmU3ZDU1MjVmZWQ0ZWEiLCJpYXQiOjE2NzkxNTE1MzgsImV4cCI6MTY4NjkyNzUzOH0.YQh7etIV2zdHVafYdIpYw_9r5lAebn0DJzIodMgz9RA'
+      'Authorization': 'Bearer ' + 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NDFjZWIwZWZjNGM4MDBjOWZhMTQ5NmEiLCJpYXQiOjE2Nzk2ODEyOTgsImV4cCI6MTY4NzQ1NzI5OH0.idFZy91xNFIGlZPnJwV5erfIsvW_nOcptLXaObb1gVo'
     })
   }
   constructor(public http:HttpClient) { 

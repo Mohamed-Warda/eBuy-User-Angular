@@ -30,22 +30,27 @@ export class CartComponent {
       //get cart Items and Product Id in them
     this.CartService.getCart().subscribe(res=>{
       this.cartItems=res.data.cartItems;
-      this.cart=res.data
-    //  console.log(this.cartItems)
+      this.cart=res.data._id
+     console.log(this.cart)
+
       for( let i =0 ; i<this.cartItems.length;i++){
         this.products[i]=(this.cartItems[i].product)
         
       }
 
-     //
+     //get product properties form cart/products list
       this.cartProducts=this.allProducts.filter(o => this.cartItems.some((item: { product: String; }) => o._id === item.product ));
-
+     //   console.log(this.cartProducts)
      
     })
       
 
   }
-
+save(i:any,id:any){
+  console.log(i.value)
+  console.log(id)
+ // this.ngOnInit();
+}
  
   }
 

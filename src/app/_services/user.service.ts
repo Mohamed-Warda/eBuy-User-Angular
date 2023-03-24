@@ -9,7 +9,7 @@ export class UserService {
   private httpOptions = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json',
-      'Authorization': 'Bearer ' + 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NDFiNjllMjIyYWFkNGM2MzhlZjRmY2IiLCJpYXQiOjE2Nzk1MTgxODEsImV4cCI6MTY4NzI5NDE4MX0.k3WjnubX-QKPNPes4SseFTukHg6OSYWkkT23bDXZhyw'
+      'Authorization': 'Bearer ' + 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NDFjZWIwZWZjNGM4MDBjOWZhMTQ5NmEiLCJpYXQiOjE2Nzk2ODEyOTgsImV4cCI6MTY4NzQ1NzI5OH0.idFZy91xNFIGlZPnJwV5erfIsvW_nOcptLXaObb1gVo'
     })
   }
   constructor(public http:HttpClient) { 
@@ -20,18 +20,22 @@ export class UserService {
   getUser(){
     return  this.http.get<any>(`${this.baseurl}/getMe`,this.httpOptions);
   }
-  updateUser(item:object){
+  updateUser(item:any){
+   
     return this.http.put(`${this.baseurl}/updateMe`, item,this.httpOptions)
 
   }
   changePassword(item:object){
-    return this.http.put(`${this.baseurl}/changeMyPassword`, item,this.httpOptions)
+    let user =JSON.stringify(item);
+    return this.http.put(`${this.baseurl}/changeMyPassword`, user,this.httpOptions)
 
   }
-  deleleUser(_id:object){
-    return this.http.delete(`${this.baseurl}/deleteMe`, _id)
+  deleleUser(){
+    return this.http.delete(`${this.baseurl}/deleteMe`, this.httpOptions)
 
   }
+
+ 
 }
 
 

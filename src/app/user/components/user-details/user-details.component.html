@@ -1,0 +1,41 @@
+
+          <!--Start of the Profile part-->
+            <div class="p-3 py-5 " *ngIf="profile" >
+              
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <h4 class="text-right">Profile </h4>
+                </div>
+                <div class="row mt-2">
+                    <div class="col-md-12"><label class="labels">Name</label><input type="text" class="form-control" placeholder="first name" disabled [value]="user?.name"></div>
+                  
+                </div>
+                <div class="row mt-3">
+                    <div *ngIf="user.phone" class="col-md-12"><label class="labels">Mobile Number</label><input type="text" class="form-control" disabled placeholder="enter phone number" [value]="user.phone"></div>
+  
+                    <div class="col-md-12"><label class="labels">Email </label><input type="text" class="form-control" disabled  [value]="user.email"></div>
+                    <!--To be Added-->
+                    <div class="col-md-12" *ngFor="let address  of user.addresses; let i= index"><label class="labels">Address {{i+1}}</label><input *ngIf="address.alias"  type="text" class="form-control" disabled [value]="address.alias+ '  '+address.details+'  ,Phone : '+address.phone"></div>
+                 
+                  
+                    
+                </div>
+              
+               
+            </div>
+
+
+
+            <!--End OF Profile Part-->
+           
+
+                  <!--start of Change password-->
+             
+
+                  
+            
+              
+
+           
+     
+        
+

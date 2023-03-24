@@ -1,0 +1,31 @@
+<div class="container rounded bg-white mt-5 mb-5">
+    
+    <div class="row">
+        <div class="col-md-3 border-right">
+            <div class="d-flex flex-column align-items-center text-center p-3 py-5">
+                <!--Image-->
+                <img class="rounded-circle mt-5" width="150px" src="https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg"><span class="font-weight-bold">Edogaru</span>
+                 <!--email-->
+                 <span class="text-black-50">edogaru@mail.com.my</span><span> </span></div>
+                 <button routerLink="/profile" type="button" class="btn btn-outline-secondary col-md-12" (click)="appear=false" >  Profile  </button>
+                 <button (click)="appear=true"   type="button" class="btn btn-outline-secondary col-md-12" routerLink="edit"> Setting  </button>
+
+        </div>
+  
+        <div class="col-md-9 border-right">
+          <!--Start of the Profile part-->
+          <div class="button-group" *ngIf="appear">
+          <button routerLink="edit" #btn1 (click)="changeColor(btn1)" type="button" class=" mr-3 btn btn-outline-secondary active"> Edit Profile  </button>
+          <button   #btn2 (click)="changeColor(btn2)"type="button" class=" mr-3 btn btn-outline-secondary" routerLink="change-password"> Change Password  </button>
+          <button #btn3 (click)="changeColor(btn3)"  type="button" class=" mr-3 btn btn-outline-secondary" routerLink="addresses"> Addresses  </button>
+          <button #btn4  (click)="changeColor(btn4)" type="button" class=" mr-3 btn btn-outline-secondary"  routerLink="delete"> Delete Account  </button>
+        </div>
+            <router-outlet></router-outlet>
+        
+                     <!--end of add address-->
+
+            </div>
+        </div>
+        
+    </div>
+
