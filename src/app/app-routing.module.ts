@@ -11,6 +11,7 @@ import { UserComponent } from './user/components/user-details/user-details.compo
 import { UserEditProfileComponent } from './user/components/user-edit-profile/user-edit-profile.component';
 import { UserPasswordComponent } from './user/components/user-password/user-password.component';
 import { WishListComponent } from './wishlist/wish-list/wish-list.component';
+import { ErrorNotFoundComponent } from './notfound/error-not-found/error-not-found.component';
 
 const routes:Routes=[
   // route for Home page
@@ -23,7 +24,9 @@ const routes:Routes=[
   {path:"addresses",component:UserAddressesComponent},
   {path:"delete",component:UserDeleteComponent},{path:"**",component:UserComponent}]},
   {path:'',redirectTo:'product',pathMatch:'full'},
-  {path:'productItem',redirectTo:'product',pathMatch:'full'}
+  {path:'productItem',redirectTo:'product',pathMatch:'full'},
+  {path:'**',component:ErrorNotFoundComponent}
+
 
 ]
 

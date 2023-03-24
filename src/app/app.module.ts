@@ -13,6 +13,8 @@ import { NgbAlertModule, NgbModule, NgbPagination, NgbPaginationModule , } from 
 import { UserModule } from './user/user.module';
 import { FormsModule } from '@angular/forms';
 import { OrdersModule } from './orders/orders.module';
+import { ErrorNotFoundComponent } from './notfound/error-not-found/error-not-found.component';
+
 //import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 //import { NgbPaginationModule, NgbAlertModule } from '@ng-bootstrap/ng-bootstrap';
 //import {NgbPaginationModule, NgbAlertModule} from '@ng-bootstrap/ng-bootstrap';
@@ -22,6 +24,9 @@ import { OrdersModule } from './orders/orders.module';
 @NgModule({
   declarations: [
     AppComponent,
+    ErrorNotFoundComponent,
+
+    
     
  
     
@@ -45,7 +50,8 @@ import { OrdersModule } from './orders/orders.module';
     UserModule,
     FormsModule,
     HomeModule,
-    OrdersModule
+    OrdersModule,
+    
   
 
 
