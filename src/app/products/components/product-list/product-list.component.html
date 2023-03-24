@@ -17,6 +17,37 @@
   <div class="row px-xl-5">
     <!-- Shop Sidebar Start -->
     <div class="col-lg-3 col-md-4">
+
+      <!-- Price Start -->
+      <h5 class="section-title position-relative text-uppercase mb-3">
+        <span class="bg-secondary pr-3"> Search for product's name </span>
+      </h5>
+      <div class="bg-light p-4 mb-30">
+        <div class="row">
+          <div class="col-12">
+            <label for="" class="form-label">Search among all products</label>
+            <input
+              type="text"
+              class="form-control"
+        
+              #productSearch
+            />
+          </div>
+         
+          <div class="col-12">
+            <button
+              name="priceSearch"
+              class="btn btn-primary mt-3 w-100"
+              (click)="searchProduct(productSearch.value)"
+
+            >
+              SEARCH
+            </button>
+          </div>
+        </div>
+      </div>
+      <!-- Price End -->
+
       <!-- Price Start -->
       <h5 class="section-title position-relative text-uppercase mb-3">
         <span class="bg-secondary pr-3">Filter by price</span>
@@ -63,8 +94,12 @@
         <span class="bg-secondary pr-3">Filter by Ratings</span>
       </h5>
       <div class="bg-light p-4 mb-30">
-        <label for="custom-range" class="form-label">Select Rating (1 - 5) </label>
-        <span #ratingRangeSpan class="d-block"> {{ ratingRange.value }} <i class="fas fa-star text-primary"> </i> or more
+        <label for="custom-range" class="form-label"
+          >Select Rating (1 - 5)
+        </label>
+        <span #ratingRangeSpan class="d-block">
+          {{ ratingRange.value }} <i class="fas fa-star text-primary"> </i> or
+          more
         </span>
         <input
           type="range"
@@ -74,19 +109,16 @@
           value="0"
           step="0.1"
           #ratingRange
-          (change)="ratingRange.value"
+          (change)="(ratingRange.value)"
         />
-      
+
         <button
           name="ratingSearch"
           class="btn btn-primary mt-3 w-100"
-        (click)="filterByRating(ratingRange.value)" 
+          (click)="filterByRating(ratingRange.value)"
         >
-          SEARCH   
+          SEARCH
         </button>
-
-
-
       </div>
       <!-- Rating End -->
 
@@ -173,9 +205,7 @@
                 </button>
                 <div class="dropdown-menu dropdown-menu-right">
                   <!-- need to return categories from API -->
-                  <a class="dropdown-item" 
-                    (click)="sortFromHighToLow()"
-                  >All</a>
+                  <a class="dropdown-item" (click)="sortFromHighToLow()">All</a>
                   <span
                     class="dropdown-item"
                     *ngFor="let category of categories"
@@ -194,17 +224,12 @@
                   SortBy
                 </button>
                 <div class="dropdown-menu dropdown-menu-right">
-                  <span class="dropdown-item"
-                    (click)="sortFromLowToHigh()"
-                  >
-                      From Low to High ↘️
+                  <span class="dropdown-item" (click)="sortFromLowToHigh()">
+                    From Low to High ↘️
                   </span>
-                  <span class="dropdown-item"
-                    (click)="sortFromHighToLow()"
-                  >
+                  <span class="dropdown-item" (click)="sortFromHighToLow()">
                     From High to Low ↗️
                   </span>
-              
                 </div>
               </div>
             </div>
@@ -255,7 +280,7 @@
 
             <div class="text-center py-4">
               <a class="h6 text-decoration-none text-truncate" href="">
-                {{item.title.slice(0,20)}}...
+                {{ item.title.slice(0, 20) }}...
               </a>
               <div
                 class="d-flex align-items-center justify-content-center mt-2"
@@ -268,12 +293,48 @@
               <div
                 class="d-flex align-items-center justify-content-center mb-1"
               >
-                <small class="fa fa-star text-primary mr-1"></small>
-                <small class="fa fa-star text-primary mr-1"></small>
-                <small class="fa fa-star text-primary mr-1"></small>
-                <small class="far fa-star text-primary mr-1"></small>
-                <small class="far fa-star text-primary mr-1"></small>
-                <small>(99)</small>
+                <!-- display stars according to rating -->
+                <!-- <span *ngFor="let star of [1, 2, 3, 4, 5]">
+                  <i class="fa"
+                    [class]="star <= item.ratingsAverage ? ' fa-star' : ' bi bi-star'"
+                  ></i>
+                </span> -->
+                <!-- <ngb-rating rating="item.ratingsAverage" [max]="5" [(rate)]=item.ratingsAverage [readonly]="true"> </ngb-rating> -->
+
+                <!-- <span *ngFor="let star of [1,2,3,4,5]">
+                  <span class="bi" [ngClass]="{
+                    'bi-star-fill': star <= math.floor(item.ratingsAverage),
+                    
+                    'bi-star': star > item.ratingsAverage,
+                    'text-primary': star <= math.floor(item.ratingsAverage),
+                    'text-muted': star > item.ratingsAverage,
+                    
+                    'bi-star-half': star && item.ratingsAverage / 10  
+                  }"></span>
+                </span> -->
+                <div>
+                  <ng-template #stars let-fill="fill">
+                    <i class="bi-star-fill stars-rating">
+                      <i
+                        *ngIf="fill > 0"
+                        class="bi-star-fill filled"
+                        [style.width.%]="fill"
+                      ></i>
+                    </i>
+                  </ng-template>
+                </div>
+
+                <ngb-rating
+                  [(rate)]="item.ratingsAverage"
+                  [starTemplate]="stars"
+                  [readonly]="true"
+                  [max]="5"
+                ></ngb-rating>
+
+                <br />
+              </div>
+              <div class="mt-3">
+                <h6>({{ item.ratingsQuantity }}) People rate this</h6>
               </div>
             </div>
           </div>
