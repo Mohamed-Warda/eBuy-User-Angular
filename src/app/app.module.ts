@@ -12,6 +12,7 @@ import { HomeModule } from './home/home.module';
 import { NgbAlertModule, NgbModule, NgbPagination, NgbPaginationModule , } from '@ng-bootstrap/ng-bootstrap';
 import { UserModule } from './user/user.module';
 import { FormsModule } from '@angular/forms';
+import { OrdersModule } from './orders/orders.module';
 //import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 //import { NgbPaginationModule, NgbAlertModule } from '@ng-bootstrap/ng-bootstrap';
 //import {NgbPaginationModule, NgbAlertModule} from '@ng-bootstrap/ng-bootstrap';
@@ -20,7 +21,8 @@ import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    
  
     
   
@@ -43,6 +45,7 @@ import { FormsModule } from '@angular/forms';
     UserModule,
     FormsModule,
     HomeModule,
+    OrdersModule
   
 
 

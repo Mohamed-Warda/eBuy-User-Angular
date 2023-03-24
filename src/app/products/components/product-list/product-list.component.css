@@ -12,6 +12,8 @@
 end
 test
 */
+@import "~bootstrap-icons/font/bootstrap-icons.css";
+
  :root {
     --blue: #007bff;
     --indigo: #6610f2;
@@ -80,7 +82,9 @@ test
     height: 0;
     overflow: visible;
   }
-  
+
+		
+		
   h1, h2, h3, h4, h5, h6 {
     margin-top: 0;
     margin-bottom: 0.5rem;
@@ -9721,4 +9725,18 @@ test
     display: none;
   } */
 
-  
+  .stars-rating  {
+    position: relative;
+    display: inline-block;
+    font-size: 1.5rem;
+    padding-right: 0.1rem;
+    color: #d3d3d3;
+  }
+
+  .filled {
+    color: #FFD333;
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }

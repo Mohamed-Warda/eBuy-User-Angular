@@ -2,6 +2,7 @@ import { Component, NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { CartComponent } from './cart/components/cart/cart.component';
 import { MyHomeComponent } from './home/my-home/my-home.component';
+import { OrderDetailsComponent } from './orders/components/order-details/order-details.component';
 import { ProductListComponent } from './products/components/product-list/product-list.component';
 import { ProfileComponent } from './shared/components/profile/profile.component';
 import { UserAddressesComponent } from './user/components/user-addresses/user-addresses.component';
@@ -16,6 +17,7 @@ const routes:Routes=[
   {path:'',component:MyHomeComponent},
   {path:'products',component:ProductListComponent},
   {path:'cart',component:CartComponent},
+  {path:'orders',component:OrderDetailsComponent},
   {path:'wishing-list',component:WishListComponent},
   {path:'profile',component:ProfileComponent,children:[{path:"edit",component:UserEditProfileComponent},{path:"change-password",component:UserPasswordComponent},
   {path:"addresses",component:UserAddressesComponent},

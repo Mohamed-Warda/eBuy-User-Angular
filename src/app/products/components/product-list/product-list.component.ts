@@ -16,6 +16,10 @@ export class ProductListComponent {
   pageSize: number = 3;
   // productsLength: number = 6;
 
+  math = Math;
+
+  
+
   getProduct() {
     console.log(this.page);
   }
@@ -23,8 +27,10 @@ export class ProductListComponent {
   products: IProduct[] = [];
   categories: IProduct[] = [];
 
+
+
   filterByCategory(category: any) {
-    let filteredProducts =[];
+    let filteredProducts = [];
     this.ProductsService.getAllProducts().subscribe((res) => {
       filteredProducts = res.data.filter((product: any) => {
         return product.category.name === category;
@@ -32,23 +38,35 @@ export class ProductListComponent {
       console.log(filteredProducts);
       this.products = filteredProducts;
     });
-    
   }
 
-  filterByPrice(min: any , max: any){
-    let filteredProducts =[];
+  searchProduct(search: any) {
+    let searchedProducts = [];
+    this.ProductsService.getAllProducts().subscribe((res) => {
+
+      searchedProducts = res.data.filter((product: any) => {
+        return product.title.toLowerCase().includes(search.toLowerCase());
+      });
+      console.log(searchedProducts);
+      this.products = searchedProducts;
+    });
+  }
+
+  filterByPrice(min: any, max: any) {
+    let filteredProducts = [];
     this.ProductsService.getAllProducts().subscribe((res) => {
       filteredProducts = res.data.filter((product: any) => {
-        return product.priceAfterDiscount>=min && product.priceAfterDiscount<=max;
+        return (
+          product.priceAfterDiscount >= min && product.priceAfterDiscount <= max
+        );
       });
       console.log(filteredProducts);
       this.products = filteredProducts;
     });
-    
   }
 
-  filterByRating(rating : any){
-    let filteredProducts =[];
+  filterByRating(rating: any) {
+    let filteredProducts = [];
     this.ProductsService.getAllProducts().subscribe((res) => {
       filteredProducts = res.data.filter((product: any) => {
         return product.ratingsAverage >= rating;
@@ -56,11 +74,10 @@ export class ProductListComponent {
       console.log(filteredProducts);
       this.products = filteredProducts;
     });
-    
   }
 
-  sortFromLowToHigh(){
-    let sortedProducts =[];
+  sortFromLowToHigh() {
+    let sortedProducts = [];
     this.ProductsService.getAllProducts().subscribe((res) => {
       sortedProducts = res.data.sort((a: any, b: any) => {
         return a.priceAfterDiscount - b.priceAfterDiscount;
@@ -68,11 +85,10 @@ export class ProductListComponent {
       console.log(sortedProducts);
       this.products = sortedProducts;
     });
-
   }
 
-  sortFromHighToLow(){
-    let sortedProducts =[];
+  sortFromHighToLow() {
+    let sortedProducts = [];
     this.ProductsService.getAllProducts().subscribe((res) => {
       sortedProducts = res.data.sort((a: any, b: any) => {
         return b.priceAfterDiscount - a.priceAfterDiscount;
@@ -80,7 +96,6 @@ export class ProductListComponent {
       console.log(sortedProducts);
       this.products = sortedProducts;
     });
-
   }
 
   constructor(private ProductsService: ProductsService) {}
@@ -99,7 +114,8 @@ export class ProductListComponent {
         console.log(this.categories[i].name);
       }
     });
-
-    // use filterBycategory with category name as dynamic input to filter products
   }
+
+  
+  
 }

@@ -4,6 +4,7 @@ import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { RouterModule } from '@angular/router';
 import { ProfileComponent } from './components/profile/profile.component';
+import { RatingComponent } from './rating/rating.component';
 
 
 
@@ -12,6 +13,7 @@ import { ProfileComponent } from './components/profile/profile.component';
     HeaderComponent,
     FooterComponent,
     ProfileComponent,
+    RatingComponent,
   ],
   imports: [
     CommonModule,
