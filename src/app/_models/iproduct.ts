@@ -14,9 +14,10 @@ export interface IProduct {
   category: {
     name: String;
   };
+  search: String;
   subcategories: String;
   brand: String;
-  ratingsAverage: Number;
+  ratingsAverage: any;
   ratingsQuantity: Number;
   categories: {
     name: String;
