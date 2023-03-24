@@ -116,6 +116,8 @@ export class ProductListComponent {
     });
   }
 
-  
+  addToCart(event:any){
+    console.log(event)
+  }
   
 }
