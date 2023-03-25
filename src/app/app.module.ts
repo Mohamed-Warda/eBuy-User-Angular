@@ -9,11 +9,15 @@ import { SharedModule } from './shared/shared.module';
 import { CartModule } from './cart/cart.module';
 import { WishlistModule } from './wishlist/wishlist.module';
 import { HomeModule } from './home/home.module';
-import { NgbAlertModule, NgbModule, NgbPagination, NgbPaginationModule , } from '@ng-bootstrap/ng-bootstrap';
+import { NgbAlertModule, NgbModule, NgbPagination, NgbPaginationModule,  NgbAccordion , NgbPanel} from '@ng-bootstrap/ng-bootstrap';
 import { UserModule } from './user/user.module';
 import { FormsModule } from '@angular/forms';
 import { OrdersModule } from './orders/orders.module';
-import { ErrorNotFoundComponent } from './notfound/error-not-found/error-not-found.component';
+
+
+
+
+
 
 //import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 //import { NgbPaginationModule, NgbAlertModule } from '@ng-bootstrap/ng-bootstrap';
@@ -24,13 +28,11 @@ import { ErrorNotFoundComponent } from './notfound/error-not-found/error-not-fou
 @NgModule({
   declarations: [
     AppComponent,
-    ErrorNotFoundComponent,
-
-    
     
  
+
     
-  
+
         
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
@@ -51,6 +53,10 @@ import { ErrorNotFoundComponent } from './notfound/error-not-found/error-not-fou
     FormsModule,
     HomeModule,
     OrdersModule,
+    NgbAccordion,
+    NgbPanel,
+    
+        
     
   
 

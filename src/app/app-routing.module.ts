@@ -12,26 +12,34 @@ import { UserEditProfileComponent } from './user/components/user-edit-profile/us
 import { UserPasswordComponent } from './user/components/user-password/user-password.component';
 import { WishListComponent } from './wishlist/wish-list/wish-list.component';
 import { ErrorNotFoundComponent } from './notfound/error-not-found/error-not-found.component';
+import { FAQComponent } from './faq/faq/faq.component';
 
-const routes:Routes=[
+const routes: Routes = [
   // route for Home page
-  {path:'',component:MyHomeComponent},
-  {path:'products',component:ProductListComponent},
-  {path:'cart',component:CartComponent},
-  {path:'orders',component:OrderDetailsComponent},
-  {path:'wishing-list',component:WishListComponent},
-  {path:'profile',component:ProfileComponent,children:[{path:"edit",component:UserEditProfileComponent},{path:"change-password",component:UserPasswordComponent},
-  {path:"addresses",component:UserAddressesComponent},
-  {path:"delete",component:UserDeleteComponent},{path:"**",component:UserComponent}]},
-  {path:'',redirectTo:'product',pathMatch:'full'},
-  {path:'productItem',redirectTo:'product',pathMatch:'full'},
-  {path:'**',component:ErrorNotFoundComponent}
-
-
-]
+  { path: '', component: MyHomeComponent },
+  { path: 'products', component: ProductListComponent },
+  { path: 'cart', component: CartComponent },
+  { path: 'orders', component: OrderDetailsComponent },
+  { path: 'wishing-list', component: WishListComponent },
+  {
+    path: 'profile',
+    component: ProfileComponent,
+    children: [
+      { path: 'edit', component: UserEditProfileComponent },
+      { path: 'change-password', component: UserPasswordComponent },
+      { path: 'addresses', component: UserAddressesComponent },
+      { path: 'delete', component: UserDeleteComponent },
+      { path: '**', component: UserComponent },
+    ],
+  },
+  { path: '', redirectTo: 'product', pathMatch: 'full' },
+  { path: 'productItem', redirectTo: 'product', pathMatch: 'full' },
+  { path: 'faq', component: FAQComponent },
+  { path: '**', component: ErrorNotFoundComponent },
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

@@ -1,1 +1,45 @@
-<p>order-details works!</p>
+<div class="container-fluid bg-primary mt-0 mb-5">
+    <div class="col-12 d-flex justify-content-center align-items-center py-5">
+        <h3 class="pb-0 ">
+            Your Orders
+        </h3>
+    </div>
+</div>
+
+
+<div [hidden]="!(orders.length=== 0 )" class="col-12 text-center">
+    <div class="img-container mx-auto">
+      <img
+        src="../../../../assets/img/noproduct.svg"
+        alt="No Product "
+        class="img-fluid"
+        width="250"
+        height="250"
+      />
+    </div>
+
+    <h1>NO ORDERS FOUND</h1>
+  </div>
+<div 
+    *ngFor="let order of orders"
+>
+    <ul>
+        <li *ngFor="let item of order.cartItems">
+           <span>
+           {{ item.product.title}}
+              </span>
+              <br>
+               
+            <span>{{item.quantity}}</span>
+            <br>
+            <span>{{item.product.price}}</span>
+            <br>
+            <span>{{item.totalOrderPrice}}</span>
+            <br>
+            <span>{{item.paymentMethodType}}</span>
+
+        </li>
+        <hr>
+    </ul>
+
+</div>

@@ -9461,7 +9461,7 @@
   }
   
   .mb-30 {
-    margin-bottom: 30px;
+    margin-bottom: 0px !important;
   }
   
   .pb-30 {
