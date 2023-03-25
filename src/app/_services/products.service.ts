@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -8,6 +8,11 @@ export class ProductsService {
 
    baseurl='https://ecommerce-api-6p26.onrender.com/api/v1' ;
  // baseurl='http://localhost:8080/api/v1' ;
+ private httpOptions = {
+  headers: new HttpHeaders({
+    'Content-Type': 'application/json',
+    'Authorization': 'Bearer ' + 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NDFjZWIwZWZjNGM4MDBjOWZhMTQ5NmEiLCJpYXQiOjE2Nzk2ODEyOTgsImV4cCI6MTY4NzQ1NzI5OH0.idFZy91xNFIGlZPnJwV5erfIsvW_nOcptLXaObb1gVo'
+  })}
 
 
   constructor(public http:HttpClient) { 
@@ -36,6 +41,12 @@ export class ProductsService {
       return filteredProducts;
 
     });
+  }
+  addToCart(_id:String){
+    return this.http.get("https://ecommerce-api-6p26.onrender.com/api/v1/cart/"+_id,this.httpOptions);
+  }
+  saveRating(data:any) {
+  return this.http.post("https://ecommerce-api-6p26.onrender.com/api/v1/reviews",data)
   }
 
   // filterByPrice(min:number , max:number){

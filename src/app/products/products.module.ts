@@ -4,7 +4,7 @@ import { ProductDetailsComponent } from './components/product-details/product-de
 import { ProductListComponent } from './components/product-list/product-list.component';
 import { NgbRatingModule} from '@ng-bootstrap/ng-bootstrap'; 
 import { NgbAlertModule, NgbModule, NgbPagination, NgbPaginationModule , } from '@ng-bootstrap/ng-bootstrap';
-
+import {FormsModule,ReactiveFormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -13,7 +13,8 @@ import { NgbAlertModule, NgbModule, NgbPagination, NgbPaginationModule , } from 
   ],
   imports: [
     CommonModule,NgbRatingModule,
-    NgbAlertModule, NgbModule, NgbPagination, NgbPaginationModule 
+    NgbAlertModule, NgbModule, NgbPagination, NgbPaginationModule,
+    FormsModule,ReactiveFormsModule
   ],
   exports:[ProductListComponent]
 })

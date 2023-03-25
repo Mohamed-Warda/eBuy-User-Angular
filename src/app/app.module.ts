@@ -11,8 +11,8 @@ import { WishlistModule } from './wishlist/wishlist.module';
 import { HomeModule } from './home/home.module';
 import { NgbAlertModule, NgbModule, NgbPagination, NgbPaginationModule , } from '@ng-bootstrap/ng-bootstrap';
 import { UserModule } from './user/user.module';
-import { FormsModule } from '@angular/forms';
 import { OrdersModule } from './orders/orders.module';
+import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 //import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 //import { NgbPaginationModule, NgbAlertModule } from '@ng-bootstrap/ng-bootstrap';
 //import {NgbPaginationModule, NgbAlertModule} from '@ng-bootstrap/ng-bootstrap';
@@ -45,7 +45,8 @@ import { OrdersModule } from './orders/orders.module';
     UserModule,
     FormsModule,
     HomeModule,
-    OrdersModule
+    OrdersModule,
+    ReactiveFormsModule
   
 
 

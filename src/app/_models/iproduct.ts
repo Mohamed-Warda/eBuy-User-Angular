@@ -1,5 +1,5 @@
 export interface IProduct {
-  _id: String;
+  _id: string;
   title: String;
   name: String;
   slug: String;

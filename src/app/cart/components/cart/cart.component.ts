@@ -20,12 +20,16 @@ export class CartComponent {
   constructor(private CartService :CartService,private ProductsService:ProductsService){}
   ngOnInit():void
   {
+ 
+  var arr =localStorage.getItem("items") as string;
   
+  this.allProducts=JSON.parse( arr);
       // Get all the products
-      this.ProductsService.getAllProducts().subscribe(res=>{
-        this.allProducts=res.data;
+      // this.ProductsService.getAllProducts().subscribe(res=>{
+      //   this.allProducts=res.data;
    
-      })
+      // })
+     
 
       //get cart Items and Product Id in them
     this.CartService.getCart().subscribe(res=>{
@@ -51,6 +55,7 @@ save(i:any,id:any){
   console.log(id)
  // this.ngOnInit();
 }
+
  
   }
 
