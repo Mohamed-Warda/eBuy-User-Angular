@@ -4,8 +4,8 @@
         <div class="row px-xl-5">
             <div class="col-12">
                 <nav class="breadcrumb bg-light mb-30">
-                    <a class="breadcrumb-item text-dark" href="#">Home</a>
-                    <a class="breadcrumb-item text-dark" href="#">Shop</a>
+                    <a class="breadcrumb-item text-dark" routerLink="#">Home</a>
+                    <a class="breadcrumb-item text-dark" routerLink="#">Shop</a>
                     <span class="breadcrumb-item active">Shopping Cart</span>
                 </nav>
             </div>
@@ -93,8 +93,37 @@
                             <h5>Total</h5>
                             <h5>${{cart.totalPriceAfterDiscount || cart.totalCartPrice}}</h5>
                         </div>
-                        <button class="btn btn-block btn-primary font-weight-bold my-3 py-3">Proceed To Checkout</button>
+                        <a class="btn btn-block btn-primary font-weight-bold my-3 py-3" data-toggle="modal" data-target="#chooseAddress"
+                        
+                        >Proceed To Checkout</a>
                     </div>
+                    <div class="modal fade" id="chooseAddress" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <h5 class="modal-title" id="exampleModalLabel">Choosing Shipping Address</h5>
+                              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                              </button>
+                            </div>
+                            <div class="modal-body">
+                              <h6>
+                                Do you want to use one of your saved addresses or add a new one?
+                              </h6>
+                            </div>
+                            <div class="modal-footer">
+                                
+                              <button type="button" class="btn btn-dark" data-dismiss="modal">
+                                <a routerLink="/address/newAddress" class="text-decortation-none" style="color: white;">New One</a>
+                              </button>
+                              <button type="button" class="btn btn-primary">
+                                <a routerLink="/address/savedAddresses" class="text-decortation-none" style="color: white;">Saved One</a>
+                              </button>
+                              
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                 </div>
             </div>
         </div>

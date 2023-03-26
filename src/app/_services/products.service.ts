@@ -6,8 +6,8 @@ import { HttpClient } from '@angular/common/http';
 })
 export class ProductsService {
 
-   baseurl='https://ecommerce-api-6p26.onrender.com/api/v1' ;
- // baseurl='http://localhost:8080/api/v1' ;
+    baseurl='https://ecommerce-api-6p26.onrender.com/api/v1' ;
+ //baseurl='http://localhost:8080/api/v1' ;
 
 
   constructor(public http:HttpClient) { 
