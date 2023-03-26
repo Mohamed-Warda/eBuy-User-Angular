@@ -23,6 +23,7 @@
                         <tr>
                             <th>Products</th>
                             <th>Price</th>
+                            <th>Color</th>
                             <th>Quantity</th>
                             <th>Total</th>
                             <th>Remove</th>
@@ -35,6 +36,7 @@
                         <tr *ngFor="let item of cartProducts; let i =index">
                             <td class="float-left"><img src="../../../../assets/img/product-3.jpg" alt="" style="width: 50px;"> {{item.title}}</td>
                             <td class="align-middle">${{item.price}}</td>
+                            <td class="align-middle">{{(cartItems[i].color)}}</td>
 
                             <!-- start item Q-->
                             <td class="align-middle">
@@ -42,7 +44,7 @@
                                 <div class="input-group quantity mx-auto" style="width: 100px;">
                                     <div class="form-outline" style="width: 22rem;">
                                 
-                                        <select #select  (click)="save(select,item._id)" class="form-control form-icon-trailing w-100 font-weight-bold text-center bg-warning text-dark " aria-label="Default select example">
+                                        <select #select  (change)="save(cartItems[i]._id,select.value)" class="form-control form-icon-trailing w-100 font-weight-bold text-center bg-warning text-dark " aria-label="Default select example">
                                             <option selected>{{cartItems[i].quantity}}</option>
                                             <option value="1" *ngFor="let _ of [].constructor(item.quantity); let i =index" [value]="i+1">{{i+1}}</option>
                                          
@@ -53,37 +55,43 @@
                             </td>
                             <!--end item Q-->
                             <td class="align-middle">${{(cartItems[i].quantity)*(item.price)}}</td>
-                            <td class="align-middle"><button class="btn btn-sm btn-danger"><i class="fa fa-times"></i></button></td>
+                            <td class="align-middle"><button (click)="deleteItem(cartItems[i]._id)" class="btn btn-sm btn-danger"><i class="fa fa-times"></i></button></td>
                         </tr>
                         <!--/////////////////////-->
                     </tbody>
                 </table>
             </div>
             <div class="col-lg-4">
-                <form class="mb-30" action="">
-                    <div class="input-group">
-                        <input type="text" class="form-control border-0 p-4" placeholder="Coupon Code">
-                        <div class="input-group-append">
-                            <button class="btn btn-primary">Apply Coupon</button>
+                
+                    <div class="input-group mb-4">
+                        <input #coupon type="text" class="form-control border-0 p-4" placeholder="Coupon Code">
+                        <div class="input-group-append ">
+                            <button  (click)="addCoupon(coupon.value)" class="btn btn-primary">Apply Coupon</button>
                         </div>
+                        
                     </div>
-                </form>
+                    <div class="mx-5 mb-5   "  *ngIf="error!=''">
+                        <h6 class="text-danger">Coupon is invalid or expired</h6>
+                    </div>
+                    <div class="mx-5 mb-5   "  *ngIf="couponApplied">
+                        <h6 class="text-success">Coupon Applied</h6>
+                    </div>
                 <h5 class="section-title position-relative text-uppercase mb-3"><span class="bg-secondary pr-3">Cart Summary</span></h5>
                 <div class="bg-light p-30 mb-5">
                     <div class="border-bottom pb-2">
                         <div class="d-flex justify-content-between mb-3">
                             <h6>Subtotal</h6>
-                            <h6>${{cart.totalCartPrice}}</h6>
+                            <h6>${{cart.totalCartPrice||0}}</h6>
                         </div>
                         <div class="d-flex justify-content-between">
-                            <h6 class="font-weight-medium">Taxes</h6>
-                            <h6 class="font-weight-medium">$10</h6>
+                            <h6 class="font-weight-medium">After Coupon</h6>
+                            <h6 class="font-weight-medium">${{cart.totalPriceAfterDiscount}}</h6>
                         </div>
                     </div>
                     <div class="pt-2">
                         <div class="d-flex justify-content-between mt-2">
                             <h5>Total</h5>
-                            <h5>${{cart.totalCartPrice+10}}</h5>
+                            <h5>${{cart.totalPriceAfterDiscount || cart.totalCartPrice}}</h5>
                         </div>
                         <button class="btn btn-block btn-primary font-weight-bold my-3 py-3">Proceed To Checkout</button>
                     </div>

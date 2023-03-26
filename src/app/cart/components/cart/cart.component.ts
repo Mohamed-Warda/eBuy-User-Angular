@@ -17,6 +17,8 @@ export class CartComponent {
   products:string[]=[] // save the ProId
   cartProducts:any[]=[] 
   allProducts:IProduct[]=[] // all product
+  error :string='';
+  couponApplied:boolean=false;
   constructor(private CartService :CartService,private ProductsService:ProductsService){}
   ngOnInit():void
   {
@@ -30,8 +32,7 @@ export class CartComponent {
       //get cart Items and Product Id in them
     this.CartService.getCart().subscribe(res=>{
       this.cartItems=res.data.cartItems;
-      this.cart=res.data._id
-     console.log(this.cart)
+      this.cart=res.data
 
       for( let i =0 ; i<this.cartItems.length;i++){
         this.products[i]=(this.cartItems[i].product)
@@ -46,12 +47,35 @@ export class CartComponent {
       
 
   }
-save(i:any,id:any){
-  console.log(i.value)
-  console.log(id)
- // this.ngOnInit();
+save(itemID:any,quantity:any){
+  this.CartService.updateItemQuantity(itemID,quantity).subscribe(res=>{
+  this.ngOnInit();
+
+  })
 }
- 
+deleteItem(itemId:string){
+this.CartService.deleteByID(itemId).subscribe(res=>{
+  this.ngOnInit();
+
+})
+}
+
+addCoupon(coupon:string)
+{
+  this.CartService.applyCoupon(coupon).subscribe((res)=>{
+    this.error='';
+this.couponApplied=true;
+this.ngOnInit();
+
+
+  },(err)=>{
+    this.error=err.message;
+    console.log(err.status)
+    
+this.couponApplied=false;
+    this.ngOnInit();
+  })
+}
   }
 
 

@@ -12,7 +12,7 @@ export class UserService {
   private httpOptions = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json',
-      'Authorization': 'Bearer ' + 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NDFjZWIwZWZjNGM4MDBjOWZhMTQ5NmEiLCJpYXQiOjE2Nzk2ODEyOTgsImV4cCI6MTY4NzQ1NzI5OH0.idFZy91xNFIGlZPnJwV5erfIsvW_nOcptLXaObb1gVo'
+      'Authorization': 'Bearer ' + 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NDFlYzU5ODBhYTc2MTdmYTlmNmQyNTEiLCJpYXQiOjE2Nzk3NjM4MjMsImV4cCI6MTY4NzUzOTgyM30.L-DwXVNjDIS2zXGH30QsrZne1KGovyvKFvdHMKZx8p4'
     })
   }
 
