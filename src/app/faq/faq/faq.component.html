@@ -1,4 +1,4 @@
-
+<!-- 
 <ngb-accordion > 
     <ngb-panel title="What is Angular?" class="accordion-button collapsed">
       <ng-template ngbPanelContent>
@@ -18,4 +18,149 @@
         <p>Angular Material is a collection of reusable UI components that integrate with Angular. Each component implements common interaction patterns according to the Material Design specification.</p>
       </ng-template>
     </ngb-panel>    
-</ngb-accordion>
+</ngb-accordion> -->
+<style>
+  /* Set the font size and line height for the accordion content */
+  .accordion p {
+    font-size: 16px;
+    line-height: 1.5;
+  }
+  .accordion .card{
+
+  }
+  /* Set the color and background color for the accordion headers */
+  .accordion .card-header {
+    color: #ffffff;
+    background-color: var(--primary);
+  }
+
+  /* Add padding to the accordion headers */
+  .accordion .card-header h2 {
+    padding: 0.5rem;
+    font-size: 1.125rem;
+  }
+
+ 
+  /* Set the padding and margin for the accordion content */
+  .accordion .card-body {
+    padding: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  /* Add a border to the accordion content */
+  .accordion .card-body {
+    border-top: none;
+  }
+</style>
+
+<div class="container-fluid bg-primary mt-0 mb-5">
+  <div class="col-12 d-flex justify-content-center align-items-center py-5">
+      <h3 class="pb-0 ">
+          Frequently Asked Questions
+      </h3>
+  </div>
+</div>
+
+
+
+<div class="container mx-auto">
+
+
+<div class="accordion" id="myAccordion">
+  <div class="card">
+    <div class="card-header bg-dark" id="panel1">
+      <h2 class="mb-0">
+        <button
+          class="btn btn-link text-left text-white"
+          type="button"
+          data-toggle="collapse"
+          data-target="#collapse1"
+          aria-expanded="true"
+          aria-controls="collapse1"
+        >
+          How can I place an order on your website?
+        </button>
+      </h2>
+    </div>
+
+    <div
+      id="collapse1"
+      class="collapse show"
+      aria-labelledby="panel1"
+      data-parent="#myAccordion"
+    >
+      <div class="card-body">
+        <p>
+          A: To place an order on our website, select the item(s) you wish to
+          purchase, add them to your cart, and follow the checkout process.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-header  bg-dark" id="panel2">
+      <h2 class="mb-0">
+        <button
+          class="btn btn-link text-left  text-white collapsed"
+          type="button"
+          data-toggle="collapse"
+          data-target="#collapse2"
+          aria-expanded="false"
+          aria-controls="collapse2"
+        >
+          How can I track my order?
+        </button>
+      </h2>
+    </div>
+
+    <div
+      id="collapse2"
+      class="collapse"
+      aria-labelledby="panel2"
+      data-parent="#myAccordion"
+    >
+      <div class="card-body">
+        <p>
+          A: You can usually track your order by logging into your account or by
+          using the tracking number provided in your shipping confirmation
+          email..
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-header bg-dark" id="panel3">
+      <h2 class="mb-0">
+        <button
+          class="btn btn-link text-left collapsed text-white"
+          type="button"
+          data-toggle="collapse"
+          data-target="#collapse3"
+          aria-expanded="false"
+          aria-controls="collapse3"
+        >
+          What if I receive a damaged or defective product?
+        </button>
+      </h2>
+    </div>
+
+    <div
+      id="collapse3"
+      class="collapse"
+      aria-labelledby="panel3"
+      data-parent="#myAccordion"
+    >
+      <div class="card-body">
+        <p>
+          A: If you receive a damaged or defective product, please contact
+          customer service as soon as possible to initiate a return or
+          exchange..
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+</div>

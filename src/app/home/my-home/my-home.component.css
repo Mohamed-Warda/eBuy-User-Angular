@@ -5,6 +5,8 @@
  * Copyright 2011-2020 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
  */
+@import "~bootstrap-icons/font/bootstrap-icons.css";
+
  :root {
     --blue: #007bff;
     --indigo: #6610f2;
@@ -9710,4 +9712,18 @@
       transform: translateY(-15px);
     }
   }
-  
+  .stars-rating  {
+    position: relative;
+    display: inline-block;
+    font-size: 1.5rem;
+    padding-right: 0.1rem;
+    color: #d3d3d3;
+  }
+
+  .filled {
+    color: #FFD333;
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }

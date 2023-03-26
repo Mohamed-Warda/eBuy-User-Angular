@@ -1,0 +1,62 @@
+<div class="container my-5">
+  <h2 class="section-title position-relative text-uppercase mx-xl-5 mb-4">
+    <span class="bg-secondary pr-3">Enter Shipping Address </span>
+  </h2>
+  <div class="row px-xl-5 justify-content-center">
+    <div class="col-md-8 mb-5">
+      <div class="contact-form bg-light p-30">
+        <div id="success"></div>
+
+        <div class="control-group mb-3">
+          <label for="">Alias Address</label>
+          <input
+            type="text"
+            class="form-control"
+            #alias
+            placeholder=" address must be +3 characters"
+            required="required"
+          />
+        </div>
+        <div class="control-group mb-3">
+          <label for="">Detailed Address</label>
+
+          <input
+            type="text"
+            class="form-control"
+            #details
+            placeholder="Detailed address must be +10 characters"
+            required="required"
+          />
+        </div>
+        <div class="control-group mb-3">
+          <label for="">Phone Number</label>
+
+          <input
+            type="phone"
+            class="form-control"
+            #phone
+            placeholder=" phone number must be an egyptian line"
+            required="required"
+            data-validation-required-message="Please enter a subject"
+          />
+          <p class="help-block text-danger"></p>
+        </div>
+
+        <div>
+          <button
+            class="btn btn-primary py-2 px-4"
+            type="submit"
+            (click)="sendOrderAddress(alias.value, details.value, phone.value)"
+          >
+            Add Shipping address Address
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+        <div class="img-container">
+            <img src="../../../../assets/img/shipping_address.svg" alt="shipping address" class="img-fluid">
+        </div>
+    </div>
+  </div>
+</div>

@@ -12,6 +12,11 @@ export class OrderDetailsComponent {
   orders: any;
   constructor(private OrderService: OrderService) {}
 
+  handleImageError(event:Event) {
+    const img = event.target as HTMLImageElement;
+  img.src = 'https://placehold.co/600x400/png';
+  }
+
   ngOnInit(): void {
     //get cart Items and Product Id in them
     this.OrderService.getOrders().subscribe((res) => {
@@ -20,5 +25,7 @@ export class OrderDetailsComponent {
 
    
     });
+
+    
   }
 }

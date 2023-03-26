@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { BrowserModule } from '@angular/platform-browser'
 import { NgIf,NgFor } from '@angular/common';
 import { RouterModule } from '@angular/router';
+import { NgbRatingModule} from '@ng-bootstrap/ng-bootstrap'; 
 
 
 
@@ -17,7 +18,8 @@ import { RouterModule } from '@angular/router';
     BrowserModule,
     NgIf,
     NgFor,
-    RouterModule
+    RouterModule,
+    NgbRatingModule
   ],
   exports:[MyHomeComponent]
 })

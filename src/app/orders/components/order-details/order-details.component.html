@@ -1,45 +1,177 @@
+<style>
+  /* Set the background color and text color of the page */
+  body {
+    background-color: #f5f5f5;
+    color: #333;
+  }
+
+  /* Style the container that holds the "Your Orders" title */
+  .container-fluid {
+    background-color: #007bff;
+    padding: 2rem;
+    margin-top: 0;
+    margin-bottom: 5rem;
+  }
+
+  /* Center the "Your Orders" title */
+  h3 {
+    text-align: center;
+    margin-bottom: 0;
+  }
+
+  /* Style the container that holds the "No orders found" message and image */
+  .text-center {
+    margin-top: 2rem;
+  }
+
+  .img-container {
+    margin-bottom: 2rem;
+  }
+
+  h1 {
+    font-size: 2rem;
+    margin-bottom: 0;
+  }
+
+  /* Style the order list */
+  ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  li {
+    margin-bottom: 1rem;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 1rem;
+  }
+
+  span:first-of-type {
+    font-weight: bold;
+  }
+
+  /* Style the "View Details" button */
+  .btn {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 0.25rem;
+    text-decoration: none;
+    display: inline-block;
+    margin-top: 1rem;
+  }
+  .order-container {
+    gap: 0.5rem;
+  }
+  .order-product-card {
+    gap: 0.8rem;
+  }
+  p {
+    margin-bottom: 0;
+  }
+  @media screen and (max-width: 992px) {
+    .order-container {
+      flex-direction: column;
+      align-items: flex-start !important;
+      gap: 0.5rem;
+    }
+    .order-products {
+      justify-content: flex-start !important;
+    }
+  }
+</style>
+
 <div class="container-fluid bg-primary mt-0 mb-5">
-    <div class="col-12 d-flex justify-content-center align-items-center py-5">
-        <h3 class="pb-0 ">
-            Your Orders
-        </h3>
-    </div>
+  <div class="col-12 d-flex justify-content-center align-items-center py-5">
+    <h3 class="pb-0">Your Orders</h3>
+  </div>
 </div>
 
-
-<div [hidden]="!(orders.length=== 0 )" class="col-12 text-center">
-    <div class="img-container mx-auto">
-      <img
-        src="../../../../assets/img/noproduct.svg"
-        alt="No Product "
-        class="img-fluid"
-        width="250"
-        height="250"
-      />
-    </div>
-
-    <h1>NO ORDERS FOUND</h1>
+<div [hidden]="!(orders.length === 0)" class="col-12 text-center">
+  <div class="img-container mx-auto">
+    <img
+      src="../../../../assets/img/noproduct.svg"
+      alt="No Product "
+      class="img-fluid"
+      width="250"
+      height="250"
+    />
   </div>
-<div 
-    *ngFor="let order of orders"
->
-    <ul>
-        <li *ngFor="let item of order.cartItems">
-           <span>
-           {{ item.product.title}}
-              </span>
-              <br>
-               
-            <span>{{item.quantity}}</span>
-            <br>
-            <span>{{item.product.price}}</span>
-            <br>
-            <span>{{item.totalOrderPrice}}</span>
-            <br>
-            <span>{{item.paymentMethodType}}</span>
 
-        </li>
-        <hr>
-    </ul>
+  <h1>NO ORDERS FOUND</h1>
+</div>
 
+<div class="container">
+  <div *ngFor="let order of orders; let i = index" class="mb-3">
+    <h2># {{ i + 1 }}</h2>
+    <!-- <ul>
+    <li *ngFor="let item of order.cartItems">
+      <span>
+        {{ item.product.title }}
+      </span>
+      <br />
+
+      <span>{{ item.quantity }}</span>
+      <br />
+      <span>{{ item.product.price }}</span>
+      <br />
+      <span>{{ item.totalOrderPrice }}</span>
+      <br />
+      <span>{{ item.paymentMethodType }}</span>
+    </li>
+    <hr />
+  </ul> -->
+    <div
+      class="order-container d-flex justify-content-start gap-2 align-items-center gap-3 bg-white mb-3 shadow p-4 border"
+    >
+      <div class="order-main-details">
+        <h6 class="fw-bold">
+          {{ order._id }}
+        </h6>
+        <p class="text-muted pb-2">
+          {{ order.createdAt | date : "medium" }}
+        </p>
+
+        <p class="pb-2">
+          <span class="fw-bold">Total Price: </span>
+          <span class="text-muted">{{ order.totalOrderPrice }} EGP </span>
+        </p>
+
+        <p class="pb-2">
+          <span class="fw-bold">Payment Method: </span>
+          <span class="text-muted">{{ order.paymentMethodType }} </span>
+        </p>
+      </div>
+
+      <div
+        class="order-products d-flex flex-wrap justify-content-start align-items-start w-100"
+        style="gap: 0.5rem"
+      >
+        <div *ngFor="let item of order.cartItems">
+          <div
+            class="d-flex justify-content-start align-items-start gap-3 order-product-card mb-3"
+          >
+            <img
+              [src]="
+                item.product.imageCover?.url ||
+                'https://placehold.co/100x150/png'
+              "
+              (error)="handleImageError($event)"
+            />
+
+            <div class="order-product-details">
+              <h6 class="fw-bold">
+                {{ item.product.title.slice(0, 15) }}
+              </h6>
+
+              <p class="text-muted pb-2">Quantity : {{ item.quantity }}</p>
+
+              <p class="text-muted pb-2">Price : {{ item.price }} Egp</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

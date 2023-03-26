@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { CartComponent } from './cart/components/cart/cart.component';
 import { MyHomeComponent } from './home/my-home/my-home.component';
 import { OrderDetailsComponent } from './orders/components/order-details/order-details.component';
+import { OrderAddressComponent } from './orders/components/order-address/order-address.component';
 import { ProductListComponent } from './products/components/product-list/product-list.component';
 import { ProfileComponent } from './shared/components/profile/profile.component';
 import { UserAddressesComponent } from './user/components/user-addresses/user-addresses.component';
@@ -20,6 +21,7 @@ const routes: Routes = [
   { path: 'products', component: ProductListComponent },
   { path: 'cart', component: CartComponent },
   { path: 'orders', component: OrderDetailsComponent },
+  { path: 'order-address', component: OrderAddressComponent },
   { path: 'wishing-list', component: WishListComponent },
   {
     path: 'profile',
@@ -36,6 +38,7 @@ const routes: Routes = [
   { path: 'productItem', redirectTo: 'product', pathMatch: 'full' },
   { path: 'faq', component: FAQComponent },
   { path: '**', component: ErrorNotFoundComponent },
+
 ];
 
 @NgModule({

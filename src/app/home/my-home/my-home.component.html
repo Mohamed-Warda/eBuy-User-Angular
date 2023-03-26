@@ -135,9 +135,7 @@
         class="d-flex align-items-center bg-light mb-4"
         style="padding: 30px"
       >
-        <h1 class="fa fa-shipping-fast text-primary m-0 mr-3">
-          👌
-        </h1>
+        <h1 class="fa fa-shipping-fast text-primary m-0 mr-3">👌</h1>
         <h5 class="font-weight-semi-bold m-0">Quality Product</h5>
       </div>
     </div>
@@ -146,9 +144,7 @@
         class="d-flex align-items-center bg-light mb-4"
         style="padding: 30px"
       >
-        <h1 class="fa fa-shipping-fast text-primary m-0 mr-2">
-          🚚
-        </h1>
+        <h1 class="fa fa-shipping-fast text-primary m-0 mr-2">🚚</h1>
         <h5 class="font-weight-semi-bold m-0">Free Shipping</h5>
       </div>
     </div>
@@ -157,29 +153,20 @@
         class="d-flex align-items-center bg-light mb-4"
         style="padding: 30px"
       >
-        <h1 class="fas fa-exchange-alt text-primary m-0 mr-3">
-            🛒
-        
-        </h1>
+        <h1 class="fas fa-exchange-alt text-primary m-0 mr-3">🛒</h1>
         <h5 class="font-weight-semi-bold m-0">14 Days return</h5>
-
       </div>
     </div>
 
     <div class="col-lg-3 col-md-6 col-sm-12 pb-1">
-        <div
-          class="d-flex align-items-center bg-light mb-4"
-          style="padding: 30px"
-        >
-          <h1 class="fas fa-exchange-alt text-primary m-0 mr-3">
-          
-          🕐
-          </h1>
-          <h5 class="font-weight-semi-bold m-0">24/7 Support</h5>
-  
-        </div>
+      <div
+        class="d-flex align-items-center bg-light mb-4"
+        style="padding: 30px"
+      >
+        <h1 class="fas fa-exchange-alt text-primary m-0 mr-3">🕐</h1>
+        <h5 class="font-weight-semi-bold m-0">24/7 Support</h5>
       </div>
-
+    </div>
   </div>
 </div>
 <!-- Featured End -->
@@ -193,7 +180,7 @@
     <ng-container *ngFor="let item of categories">
       <div class="col-lg-3 col-md-4 col-sm-6 pb-1">
         <a class="text-decoration-none" routerLink="">
-          <div class="cat-item d-flex align-items-center mb-4 p-3 shadow ">
+          <div class="cat-item d-flex align-items-center mb-4 p-3 shadow">
             <img
               class="img-fluid"
               src="https://placehold.co/100x100?text=category"
@@ -217,51 +204,61 @@
   <h2 class="section-title position-relative text-uppercase mx-xl-5 mb-4">
     <span class="bg-secondary pr-3">Featured Products</span>
   </h2>
+
   <div class="row px-xl-5">
     <div class="col-lg-3 col-md-4 col-sm-6 pb-1" *ngFor="let item of products">
       <div class="product-item bg-light mb-4">
         <div class="product-img position-relative overflow-hidden">
-          <img class="img-fluid w-100" src="https://placehold.co/600x400?text=product+image" alt="" />
+          <img
+            class="img-fluid w-100"
+            src="https://placehold.co/600x400?text=product+image"
+            alt=""
+          />
           <!-- ! REPLACE PLACE HOLDER IMAGES WHEN API IS RETURNING VALID IMAGE SRC 😐😐 -->
           <!-- <img class="img-fluid w-100" src={{item.imageCover}}alt="" /> -->
 
           <div class="product-action">
-           
-            <a class="btn btn-outline-dark btn-square" routerLink=""
-              ><i class="fa fa-sync-alt"></i
-            ></a>
             <a class="btn btn-outline-dark btn-square" routerLink=""
               ><i class="fa fa-search"></i
             ></a>
           </div>
         </div>
-        <div class="text-center py-4">
-          <a class="h6 text-decoration-none text-truncate" routerLink=""
-            >
-            {{item.title.slice(0,20)}}...
-            </a
-          >
+        <div class="text-center pt-4">
+          <a class="h6 text-decoration-none text-truncate" routerLink="">
+            {{ item.title.slice(0, 20) }}...
+          </a>
           <div class="d-flex align-items-center justify-content-center mt-2">
-            <h5>
-                {{ item.priceAfterDiscount }} $
-            </h5>
-            <h6 class="text-muted ml-2"><del>
-                {{ item.price }}$
-            </del></h6>
+            <h5>{{ item.priceAfterDiscount }} $</h5>
+            <h6 class="text-muted ml-2">
+              <del> {{ item.price }}$ </del>
+            </h6>
           </div>
-          <div class="d-flex align-items-center justify-content-center mb-1">
-            <small class="fa fa-star text-primary mr-1"></small>
-            <small class="fa fa-star text-primary mr-1"></small>
-            <small class="fa fa-star text-primary mr-1"></small>
-            <small class="fa fa-star text-primary mr-1"></small>
-            <small class="fa fa-star text-primary mr-1"></small>
-            <small>(99)</small>
+          <div>
+            <ng-template #stars let-fill="fill">
+              <i class="bi-star-fill stars-rating">
+                <i
+                  *ngIf="fill > 0"
+                  class="bi-star-fill filled"
+                  [style.width.%]="fill"
+                ></i>
+              </i>
+            </ng-template>
           </div>
+
+          <ngb-rating
+            [(rate)]="item.ratingsAverage"
+            [starTemplate]="stars"
+            [readonly]="true"
+            [max]="5"
+          ></ngb-rating>
+
+          <br />
+        </div>
+        <div class="my-3 py-3 text-center">
+          <h6>({{ item.ratingsQuantity }}) People rate this</h6>
         </div>
       </div>
     </div>
-    
-    
   </div>
 </div>
 <!-- Products End -->
@@ -300,11 +297,14 @@
   </h2>
   <div class="row px-xl-5">
     <div class="col-lg-3 col-md-4 col-sm-6 pb-1" *ngFor="let item of products">
-    <div class="product-item bg-light mb-4">
+      <div class="product-item bg-light mb-4">
         <div class="product-img position-relative overflow-hidden">
-          <img class="img-fluid w-100" src="https://placehold.co/600x400?text=Recent+product+image" alt="" />
+          <img
+            class="img-fluid w-100"
+            src="https://placehold.co/600x400?text=Recent+product+image"
+            alt=""
+          />
           <div class="product-action">
-            
             <a class="btn btn-outline-dark btn-square" routerLink=""
               ><i class="fa fa-sync-alt"></i
             ></a>
@@ -314,19 +314,14 @@
           </div>
         </div>
         <div class="text-center py-4">
-          <a class="h6 text-decoration-none text-truncate" routerLink=""
-            >
-            {{item.title.slice(0,20)}}...
-
-            </a
-          >
+          <a class="h6 text-decoration-none text-truncate" routerLink="">
+            {{ item.title.slice(0, 20) }}...
+          </a>
           <div class="d-flex align-items-center justify-content-center mt-2">
-            <h5>
-                {{ item.priceAfterDiscount }} $
-            </h5>
-            <h6 class="text-muted ml-2"><del>
-                {{ item.price }}$
-            </del></h6>
+            <h5>{{ item.priceAfterDiscount }} $</h5>
+            <h6 class="text-muted ml-2">
+              <del> {{ item.price }}$ </del>
+            </h6>
           </div>
           <div class="d-flex align-items-center justify-content-center mb-1">
             <small class="fa fa-star text-primary mr-1"></small>
