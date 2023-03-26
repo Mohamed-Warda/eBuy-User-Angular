@@ -9,10 +9,16 @@ import { SharedModule } from './shared/shared.module';
 import { CartModule } from './cart/cart.module';
 import { WishlistModule } from './wishlist/wishlist.module';
 import { HomeModule } from './home/home.module';
-import { NgbAlertModule, NgbModule, NgbPagination, NgbPaginationModule , } from '@ng-bootstrap/ng-bootstrap';
+import { NgbAlertModule, NgbModule, NgbPagination, NgbPaginationModule,  NgbAccordion , NgbPanel} from '@ng-bootstrap/ng-bootstrap';
 import { UserModule } from './user/user.module';
 import { FormsModule } from '@angular/forms';
 import { OrdersModule } from './orders/orders.module';
+
+
+
+
+
+
 //import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 //import { NgbPaginationModule, NgbAlertModule } from '@ng-bootstrap/ng-bootstrap';
 //import {NgbPaginationModule, NgbAlertModule} from '@ng-bootstrap/ng-bootstrap';
@@ -24,8 +30,9 @@ import { OrdersModule } from './orders/orders.module';
     AppComponent,
     
  
+
     
-  
+
         
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
@@ -45,7 +52,12 @@ import { OrdersModule } from './orders/orders.module';
     UserModule,
     FormsModule,
     HomeModule,
-    OrdersModule
+    OrdersModule,
+    NgbAccordion,
+    NgbPanel,
+    
+        
+    
   
 
 

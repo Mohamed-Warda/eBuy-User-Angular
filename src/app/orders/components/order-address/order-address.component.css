@@ -1,9 +1,3 @@
-.mb-30{
-    margin-bottom: 0px !important;
-}
-body{
-    background-color: #da1616;
-}
 /* You can add global styles to this file, and also import other style files */
 /* You can add global styles to this file, and also import other style files */
 /******* Bootstrap Theming ********/
@@ -9478,7 +9472,7 @@ body{
     }
     
     .mb-30 {
-      margin-bottom: 0px !important;
+      margin-bottom: 30px;
     }
     
     .pb-30 {

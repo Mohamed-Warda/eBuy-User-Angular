@@ -1,0 +1,38 @@
+<div class="container my-5">
+  <h2 class="section-title position-relative text-uppercase mx-xl-5 mb-4">
+    <span class="bg-secondary pr-3">Select Shipping Address </span>
+  </h2>
+  <div class="row px-xl-5 justify-content-center">
+    <div class="col-md-8 mb-5">
+      <div class="contact-form bg-light p-30">
+        <div>
+          <div class="form-group mb-4">
+            <label for="exampleFormControlSelect1"
+              >select one of your {{ savedAddresses.length }} Address
+            </label>
+            <select class="form-control" id="exampleFormControlSelect1">
+              <option *ngFor="let savedAddress of savedAddresses">
+                {{ savedAddress.alias }} - {{ savedAddress.details }} -
+                {{ savedAddress.phone }}
+              </option>
+            </select>
+        </div>
+        <div>
+          <button class="btn btn-primary py-2 px-4" type="submit">
+            Place Order to this Address
+          </button>
+        </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="img-container">
+        <img
+          src="../../../../assets/img/select.svg"
+          alt="shipping address"
+          class="img-fluid"
+        />
+      </div>
+    </div>
+  </div>
+</div>

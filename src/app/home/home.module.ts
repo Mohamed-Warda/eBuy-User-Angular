@@ -1,8 +1,10 @@
 import { NgModule } from '@angular/core';
 import { MyHomeComponent } from './my-home/my-home.component';
-// import { CommonModule } from '@angular/common';
+import { CommonModule } from '@angular/common';
 import { BrowserModule } from '@angular/platform-browser'
 import { NgIf,NgFor } from '@angular/common';
+import { RouterModule } from '@angular/router';
+import { NgbRatingModule} from '@ng-bootstrap/ng-bootstrap'; 
 
 
 
@@ -12,10 +14,12 @@ import { NgIf,NgFor } from '@angular/common';
     
   ],
   imports: [
-    // CommonModule,
+    CommonModule,
     BrowserModule,
     NgIf,
-    NgFor
+    NgFor,
+    RouterModule,
+    NgbRatingModule
   ],
   exports:[MyHomeComponent]
 })
