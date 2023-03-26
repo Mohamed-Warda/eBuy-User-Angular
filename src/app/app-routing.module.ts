@@ -14,6 +14,7 @@ import { UserPasswordComponent } from './user/components/user-password/user-pass
 import { WishListComponent } from './wishlist/wish-list/wish-list.component';
 import { ErrorNotFoundComponent } from './notfound/error-not-found/error-not-found.component';
 import { FAQComponent } from './faq/faq/faq.component';
+import { OrderSavedAddressComponent } from './orders/components/order-saved-address/order-saved-address.component';
 
 const routes: Routes = [
   // route for Home page
@@ -34,9 +35,19 @@ const routes: Routes = [
       { path: '**', component: UserComponent },
     ],
   },
-  { path: '', redirectTo: 'product', pathMatch: 'full' },
+  {
+    path:'address',
+    
+    children:[
+      {path:'newAddress', component:OrderAddressComponent},
+      {path:'savedAddresses', component:OrderSavedAddressComponent},
+    ]
+  },
+
+  
   { path: 'productItem', redirectTo: 'product', pathMatch: 'full' },
   { path: 'faq', component: FAQComponent },
+
   { path: '**', component: ErrorNotFoundComponent },
 
 ];

@@ -70,6 +70,11 @@
   p {
     margin-bottom: 0;
   }
+  /* @media screen and (min-width: 1200px) {
+    .order-container{
+      justify-content: center !important;
+    }
+  } */
   @media screen and (max-width: 992px) {
     .order-container {
       flex-direction: column;
@@ -88,7 +93,7 @@
   </div>
 </div>
 
-<div [hidden]="!(orders.length === 0)" class="col-12 text-center">
+<div [hidden]="(orders)" class="col-12 text-center">
   <div class="img-container mx-auto">
     <img
       src="../../../../assets/img/noproduct.svg"
@@ -103,8 +108,37 @@
 </div>
 
 <div class="container">
-  <div *ngFor="let order of orders; let i = index" class="mb-3">
-    <h2># {{ i + 1 }}</h2>
+  <div
+    *ngFor="let order of orders; let i = index"
+    class="mb-3 bg-white mb-3 shadow p-4 border"
+  >
+    <div class="order-title d-flex justify-content-between align-items-center mb-3">
+      <h2 class="mb-0 pb-0">Order #{{ i + 1 }}</h2>
+
+      <div>
+        <span>
+          <span
+            class="badge ml-2"
+            [ngClass]="{
+              'badge-danger': order.isPaid == false,
+              'badge-success': order.isPaid == true
+            }"
+            >{{ order.isPaid ? "PAID" : " NOT PAID" }}
+          </span>
+        </span>
+
+        <span
+          class="badge ml-2"
+          [ngClass]="{
+            'badge-danger': order.isDelivered == false,
+            'badge-success': order.isDelivered == true
+          }"
+          >{{ order.isPaid ? "DELIVERED" : " NOT DELIVERED" }}
+        </span>
+      </div>
+      <!-- <h2># {{ i + 1 }}</h2> -->
+    </div>
+
     <!-- <ul>
     <li *ngFor="let item of order.cartItems">
       <span>
@@ -123,7 +157,7 @@
     <hr />
   </ul> -->
     <div
-      class="order-container d-flex justify-content-start gap-2 align-items-center gap-3 bg-white mb-3 shadow p-4 border"
+      class="order-container d-flex justify-content-between gap-2 align-items-center gap-3"
     >
       <div class="order-main-details">
         <h6 class="fw-bold">
@@ -144,11 +178,8 @@
         </p>
       </div>
 
-      <div
-        class="order-products d-flex flex-wrap justify-content-start align-items-start w-100"
-        style="gap: 0.5rem"
-      >
-        <div *ngFor="let item of order.cartItems">
+      <div class="row">
+        <div *ngFor="let item of order.cartItems" class="col-6">
           <div
             class="d-flex justify-content-start align-items-start gap-3 order-product-card mb-3"
           >
@@ -175,3 +206,8 @@
     </div>
   </div>
 </div>
+
+<!-- 
+          class="order-products d-flex flex-wrap justify-content-start align-items-start w-100"
+
+ -->
