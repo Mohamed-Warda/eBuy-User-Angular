@@ -279,7 +279,8 @@
             </div>
 
             <div class="text-center py-4">
-              <a class="h6 text-decoration-none text-truncate" href="">
+              <a class="h6 text-decoration-none text-truncate"(click)="productDetails(item._id)" 
+              role="button">
                 {{ item.title.slice(0, 20) }}...
               </a>
               <div

@@ -13,13 +13,19 @@ import { UserComponent } from './user/components/user-details/user-details.compo
 import { UserEditProfileComponent } from './user/components/user-edit-profile/user-edit-profile.component';
 import { UserPasswordComponent } from './user/components/user-password/user-password.component';
 import { WishListComponent } from './wishlist/wish-list/wish-list.component';
+import { TestDetialsComponent } from './products/components/test-detials/test-detials.component';
+import { AboutUsComponent } from './about-us/about-us.component';
 
 const routes:Routes=[
   // route for Home page
   {path:'',component:MyHomeComponent},
   {path:'products',component:ProductListComponent},
-  {path:'product-details',component:ProductDetailsComponent},
+  {path:'product-details/',component:ProductDetailsComponent},
+  {path:'product-detail/:id',component:TestDetialsComponent},
+
   {path:'contactUs',component:ContactUsComponent},
+  {path:'aboutUs',component:AboutUsComponent},
+  
   {path:'cart',component:CartComponent},
   {path:'orders',component:OrderDetailsComponent},
   {path:'wishing-list',component:WishListComponent},

@@ -3,6 +3,7 @@ import { IProduct } from 'src/app/_models/iproduct';
 import { ProductsService } from 'src/app/_services/products.service';
 import { NgbPagination } from '@ng-bootstrap/ng-bootstrap';
 import { filter } from 'rxjs';
+import { Router } from '@angular/router';
 
 //import { NgbAlertModule, NgbModule, NgbPaginationModule } from '@ng-bootstrap/ng-bootstrap';
 
@@ -26,7 +27,6 @@ export class ProductListComponent {
 
   products: IProduct[] = [];
   categories: IProduct[] = [];
-
 
 
   filterByCategory(category: any) {
@@ -98,7 +98,7 @@ export class ProductListComponent {
     });
   }
 
-  constructor(private ProductsService: ProductsService) {}
+  constructor(private ProductsService: ProductsService,private router:Router) {}
 
   ngOnInit(): void {
     this.ProductsService.getAllProducts().subscribe((res) => {
@@ -118,6 +118,9 @@ export class ProductListComponent {
 
   addToCart(event:any){
     console.log(event)
+  }
+  productDetails(_id:string){
+this.router.navigate(["/product-detail",_id])
   }
   
 }

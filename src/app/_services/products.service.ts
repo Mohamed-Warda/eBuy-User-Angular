@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -8,20 +9,23 @@ export class ProductsService {
 
    baseurl='https://ecommerce-api-6p26.onrender.com/api/v1' ;
  // baseurl='http://localhost:8080/api/v1' ;
- private httpOptions = {
-  headers: new HttpHeaders({
-    'Content-Type': 'application/json',
-    'Authorization': 'Bearer ' + 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NDFjZWIwZWZjNGM4MDBjOWZhMTQ5NmEiLCJpYXQiOjE2Nzk2ODEyOTgsImV4cCI6MTY4NzQ1NzI5OH0.idFZy91xNFIGlZPnJwV5erfIsvW_nOcptLXaObb1gVo'
-  })}
 
 
+ private httpOptions= {}
   constructor(public http:HttpClient) { 
-   
+    this.httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer ' + 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NDFjZWIwZWZjNGM4MDBjOWZhMTQ5NmEiLCJpYXQiOjE2Nzk2ODEyOTgsImV4cCI6MTY4NzQ1NzI5OH0.idFZy91xNFIGlZPnJwV5erfIsvW_nOcptLXaObb1gVo'
+      })}
   }
 
   getAllProducts(){
     return  this.http.get<any>(`${this.baseurl}/products`);
     // log all the products
+  }
+  getSingelProudect(id:any){
+    return  this.http.get<any>(`${this.baseurl}/products/${id}`);
   }
   getAllCategories(){
     return  this.http.get<any>(`${this.baseurl}/categories`);
@@ -42,9 +46,9 @@ export class ProductsService {
 
     });
   }
-  addToCart(_id:String){
-    return this.http.get("https://ecommerce-api-6p26.onrender.com/api/v1/cart/"+_id,this.httpOptions);
-  }
+  // addToCart(id:String, color:string):Observable<any>{
+  //   return this.http.post<any>("https://ecommerce-api-6p26.onrender.com/api/v1/cart",id,color,this.httpOptions);
+  // }
   saveRating(data:any) {
   return this.http.post("https://ecommerce-api-6p26.onrender.com/api/v1/reviews",data)
   }
