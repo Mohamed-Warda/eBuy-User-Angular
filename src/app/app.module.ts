@@ -6,20 +6,26 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ProductsModule } from './products/products.module';
 import { SharedModule } from './shared/shared.module';
-import { CartModule } from './cart/cart.module';
-import { WishlistModule } from './wishlist/wishlist.module';
-import { HomeModule } from './home/home.module';
-import { NgbAlertModule, NgbModule, NgbPagination, NgbPaginationModule,  NgbAccordion , NgbPanel} from '@ng-bootstrap/ng-bootstrap';
-import { UserModule } from './user/user.module';
-import { FormsModule } from '@angular/forms';
-import { OrdersModule } from './orders/orders.module';
-import { CheckoutModule } from './checkout/checkout.module';
+import {CartModule} from './cart/cart.module';
+import {WishlistModule} from './wishlist/wishlist.module';
+import {HomeModule} from './home/home.module';
+import {
+  NgbAlertModule,
+  NgbModule,
+  NgbPagination,
+  NgbPaginationModule,
+  NgbAccordion,
+  NgbPanel
+} from '@ng-bootstrap/ng-bootstrap';
+import {UserModule} from './user/user.module';
+import {FormsModule} from '@angular/forms';
+import {OrdersModule} from './orders/orders.module';
+import {CheckoutModule} from './checkout/checkout.module';
 import {LoginModule} from "./login/login.module";
-import { MainComponent } from './main/main.component';
-
-
-
-
+import {MainComponent} from './main/main.component';
+import {ToastrModule} from 'ngx-toastr';
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import {httpInterceptorsProviders} from "./interceptors";
 
 
 //import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
@@ -32,12 +38,6 @@ import { MainComponent } from './main/main.component';
   declarations: [
     AppComponent,
     MainComponent,
-
-
-
-
-
-
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 
@@ -60,17 +60,11 @@ import { MainComponent } from './main/main.component';
     NgbAccordion,
     NgbPanel,
     CheckoutModule,
-    LoginModule
-
-
-
-
-
-
-
-
+    LoginModule,
+    ToastrModule.forRoot(),
+    BrowserAnimationsModule
   ],
-  providers: [],
+  providers: [httpInterceptorsProviders],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
