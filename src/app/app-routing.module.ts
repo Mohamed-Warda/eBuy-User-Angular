@@ -19,6 +19,7 @@ import { CheckoutComponent } from './checkout/components/checkout/checkout.compo
 import {LoginComponent} from "./login/components/login/login.component";
 import {MainComponent} from "./main/main.component";
 import { RegisterComponent } from './register/register/register.component';
+import { AuthGuard } from './Gaurds/auth.guard';
 
 const routes: Routes = [
   {path: 'login', component: LoginComponent},
@@ -28,11 +29,11 @@ const routes: Routes = [
     children: [
       { path: '', component: MyHomeComponent },
       { path: 'products', component: ProductListComponent },
-      { path: 'cart', component: CartComponent },
-      { path: 'checkout', component: CheckoutComponent },
-      { path: 'orders', component: OrderDetailsComponent },
-      { path: 'order-address', component: OrderAddressComponent },
-      { path: 'wishing-list', component: WishListComponent },
+      { path: 'cart', component: CartComponent,canActivate:[AuthGuard] },
+      { path: 'checkout', component: CheckoutComponent ,canActivate:[AuthGuard]},
+      { path: 'orders', component: OrderDetailsComponent,canActivate:[AuthGuard] },
+      { path: 'order-address', component: OrderAddressComponent,canActivate:[AuthGuard] },
+      { path: 'wishing-list', component: WishListComponent ,canActivate:[AuthGuard]},
       {
         path: 'profile',
         component: ProfileComponent,
@@ -42,7 +43,7 @@ const routes: Routes = [
           { path: 'addresses', component: UserAddressesComponent },
           { path: 'delete', component: UserDeleteComponent },
           { path: '**', component: UserComponent },
-        ],
+        ],canActivate:[AuthGuard]
       },
       {
         path:'address',
@@ -50,7 +51,7 @@ const routes: Routes = [
         children:[
           {path:'newAddress', component:OrderAddressComponent},
           {path:'savedAddresses', component:OrderSavedAddressComponent},
-        ]
+        ],canActivate:[AuthGuard]
       },
       { path: 'productItem', redirectTo: 'product', pathMatch: 'full' },
       { path: 'faq', component: FAQComponent },

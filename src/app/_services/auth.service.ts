@@ -59,4 +59,9 @@ export class AuthService {
     return this.httpClient.post(`${this.baseurl}/signup`, user);
 
   }
+
+  get isUserLogged(): boolean
+  {
+    return  (localStorage.getItem('token'))? true: false
+  }
 }

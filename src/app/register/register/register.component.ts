@@ -13,7 +13,9 @@ export class RegisterComponent {
   name:any;
 
 
-  constructor(private AuthService :AuthService){}
+  constructor(private AuthService :AuthService){
+
+  }
 
   addUser(){
 let newUser= {
