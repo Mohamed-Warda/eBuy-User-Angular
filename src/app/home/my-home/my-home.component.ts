@@ -1,5 +1,6 @@
+import {Router} from '@angular/router';
+import { Injectable } from '@angular/core';
 import { Component } from '@angular/core';
-import { RouterModule } from '@angular/router';
 import { IProduct } from 'src/app/_models/iproduct';
 import { ProductsService } from 'src/app/_services/products.service';
 
@@ -11,6 +12,7 @@ import { ProductsService } from 'src/app/_services/products.service';
 export class MyHomeComponent {
   page: number = 1;
   pageSize: number = 3;
+  
   // productsLength: number = 6;
 
   getProduct() {
@@ -71,7 +73,14 @@ export class MyHomeComponent {
     });
   }
 
-  constructor(private ProductsService: ProductsService) {}
+  
+
+  constructor(
+    private ProductsService: ProductsService,
+    private router: Router
+  ) {
+   
+  }
 
   ngOnInit(): void {
     this.ProductsService.getAllProducts().subscribe((res) => {
@@ -84,6 +93,11 @@ export class MyHomeComponent {
       }
     });
 
-    // use filterBycategory with category name as dynamic input to filter products
+   
+   
   }
+
+  productDetails(_id:any){
+     this.router.navigate(['/product-detail', _id]);
+      }
 }

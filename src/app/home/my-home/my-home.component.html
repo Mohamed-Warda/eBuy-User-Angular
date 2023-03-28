@@ -206,19 +206,20 @@
   </h2>
 
   <div class="row px-xl-5">
-    <div class="col-lg-3 col-md-4 col-sm-6 pb-1" *ngFor="let item of products">
+  
+    <div class="col-lg-3 col-md-4 col-sm-6 pb-1" *ngFor="let item of products.slice(0,4) ">
       <div class="product-item bg-light mb-4">
         <div class="product-img position-relative overflow-hidden">
-          <img
+          <!-- <img
             class="img-fluid w-100"
             src="https://placehold.co/600x400?text=product+image"
             alt=""
-          />
+          /> -->
           <!-- ! REPLACE PLACE HOLDER IMAGES WHEN API IS RETURNING VALID IMAGE SRC 😐😐 -->
-          <!-- <img class="img-fluid w-100" src={{item.imageCover}}alt="" /> -->
+          <img class="img-fluid w-100" [src]="item.imageCover" alt="" />
 
           <div class="product-action">
-            <a class="btn btn-outline-dark btn-square" routerLink=""
+            <a class="btn btn-outline-dark btn-square" routerLink="" (click)="productDetails(item._id)"
               ><i class="fa fa-search"></i
             ></a>
           </div>
@@ -296,19 +297,17 @@
     <span class="bg-secondary pr-3">Recent Products</span>
   </h2>
   <div class="row px-xl-5">
-    <div class="col-lg-3 col-md-4 col-sm-6 pb-1" *ngFor="let item of products">
+    <div class="col-lg-3 col-md-4 col-sm-6 pb-1" *ngFor="let item of products.slice(-4) ">
       <div class="product-item bg-light mb-4">
         <div class="product-img position-relative overflow-hidden">
           <img
             class="img-fluid w-100"
-            src="https://placehold.co/600x400?text=Recent+product+image"
+            [src]="item.imageCover"
             alt=""
-          />
+          /> 
           <div class="product-action">
-            <a class="btn btn-outline-dark btn-square" routerLink=""
-              ><i class="fa fa-sync-alt"></i
-            ></a>
-            <a class="btn btn-outline-dark btn-square" routerLink=""
+            
+            <a class="btn btn-outline-dark btn-square" routerLink="" (click)="productDetails(item._id)"
               ><i class="fa fa-search"></i
             ></a>
           </div>
@@ -318,10 +317,8 @@
             {{ item.title.slice(0, 20) }}...
           </a>
           <div class="d-flex align-items-center justify-content-center mt-2">
-            <h5>{{ item.priceAfterDiscount }} $</h5>
-            <h6 class="text-muted ml-2">
-              <del> {{ item.price }}$ </del>
-            </h6>
+            <h5>{{ item.price }} $</h5>
+            
           </div>
           <div class="d-flex align-items-center justify-content-center mb-1">
             <small class="fa fa-star text-primary mr-1"></small>

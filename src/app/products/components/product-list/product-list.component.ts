@@ -20,16 +20,12 @@ export class ProductListComponent {
 
   math = Math;
 
-  
-
   getProduct() {
     console.log(this.page);
   }
 
   products: IProduct[] = [];
   categories: IProduct[] = [];
-
-
 
   filterByCategory(category: any) {
     let filteredProducts = [];
@@ -44,7 +40,6 @@ export class ProductListComponent {
   searchProduct(search: any) {
     let searchedProducts = [];
     this.ProductsService.getAllProducts().subscribe((res) => {
-
       searchedProducts = res.data.filter((product: any) => {
         return product.title.toLowerCase().includes(search.toLowerCase());
       });
@@ -94,7 +89,11 @@ export class ProductListComponent {
     });
   }
 
-  constructor(private ProductsService: ProductsService, private WishingListService: WishingListService, private router: Router) {}
+  constructor(
+    private ProductsService: ProductsService,
+    private WishingListService: WishingListService,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
     this.ProductsService.getAllProducts().subscribe((res) => {
@@ -104,23 +103,18 @@ export class ProductListComponent {
     this.ProductsService.getAllCategories().subscribe((res) => {
       this.categories = res.data;
       console.log(this.categories);
-      for (let i = 0; i < this.categories.length; i++) {
-      }
+      for (let i = 0; i < this.categories.length; i++) {}
     });
   }
 
-  addToWishList(prdId:any)
-  {
+  addToWishList(prdId: any) {
     let id = {
-      productId:prdId
-    }
-    this.WishingListService.addToList(id).subscribe(res=>{
-    })
+      productId: prdId,
+    };
+    this.WishingListService.addToList(id).subscribe((res) => {});
   }
-  
 
-  productDetails(_id:any){
-this.router.navigate(["/product-detail",_id])
+  productDetails(_id: any) {
+    this.router.navigate(['/product-detail', _id]);
   }
-  
 }
