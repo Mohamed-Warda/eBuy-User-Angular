@@ -13,6 +13,7 @@ import { NgbAlertModule, NgbModule, NgbPagination, NgbPaginationModule,  NgbAcco
 import { UserModule } from './user/user.module';
 import { FormsModule } from '@angular/forms';
 import { OrdersModule } from './orders/orders.module';
+import { CheckoutModule } from './checkout/checkout.module';
 
 
 
@@ -55,6 +56,7 @@ import { OrdersModule } from './orders/orders.module';
     OrdersModule,
     NgbAccordion,
     NgbPanel,
+    CheckoutModule
     
         
     

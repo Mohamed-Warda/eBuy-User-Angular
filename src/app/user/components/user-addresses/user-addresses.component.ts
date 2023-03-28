@@ -21,6 +21,7 @@ export class UserAddressesComponent {
   ngOnInit(): void {
     this.UserService.getUser().subscribe((res) => {
       this.user = res.data;
+      
     });
   }
   addAddress() {

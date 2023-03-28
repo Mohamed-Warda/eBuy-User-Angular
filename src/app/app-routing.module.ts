@@ -15,12 +15,15 @@ import { WishListComponent } from './wishlist/wish-list/wish-list.component';
 import { ErrorNotFoundComponent } from './notfound/error-not-found/error-not-found.component';
 import { FAQComponent } from './faq/faq/faq.component';
 import { OrderSavedAddressComponent } from './orders/components/order-saved-address/order-saved-address.component';
+import { CheckoutComponent } from './checkout/components/checkout/checkout.component';
 
 const routes: Routes = [
   // route for Home page
   { path: '', component: MyHomeComponent },
   { path: 'products', component: ProductListComponent },
   { path: 'cart', component: CartComponent },
+  { path: 'checkout', component: CheckoutComponent },
+
   { path: 'orders', component: OrderDetailsComponent },
   { path: 'order-address', component: OrderAddressComponent },
   { path: 'wishing-list', component: WishListComponent },
