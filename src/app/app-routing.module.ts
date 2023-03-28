@@ -16,40 +16,44 @@ import { ErrorNotFoundComponent } from './notfound/error-not-found/error-not-fou
 import { FAQComponent } from './faq/faq/faq.component';
 import { OrderSavedAddressComponent } from './orders/components/order-saved-address/order-saved-address.component';
 import { CheckoutComponent } from './checkout/components/checkout/checkout.component';
+import {LoginComponent} from "./login/components/login/login.component";
+import {MainComponent} from "./main/main.component";
 
 const routes: Routes = [
-  // route for Home page
-  { path: '', component: MyHomeComponent },
-  { path: 'products', component: ProductListComponent },
-  { path: 'cart', component: CartComponent },
-  { path: 'checkout', component: CheckoutComponent },
+  {path: 'login', component: LoginComponent},
 
-  { path: 'orders', component: OrderDetailsComponent },
-  { path: 'order-address', component: OrderAddressComponent },
-  { path: 'wishing-list', component: WishListComponent },
-  {
-    path: 'profile',
-    component: ProfileComponent,
+  { path: '', component: MainComponent,
     children: [
-      { path: 'edit', component: UserEditProfileComponent },
-      { path: 'change-password', component: UserPasswordComponent },
-      { path: 'addresses', component: UserAddressesComponent },
-      { path: 'delete', component: UserDeleteComponent },
-      { path: '**', component: UserComponent },
-    ],
-  },
-  {
-    path:'address',
-    
-    children:[
-      {path:'newAddress', component:OrderAddressComponent},
-      {path:'savedAddresses', component:OrderSavedAddressComponent},
+      { path: '', component: MyHomeComponent },
+      { path: 'products', component: ProductListComponent },
+      { path: 'cart', component: CartComponent },
+      { path: 'checkout', component: CheckoutComponent },
+      { path: 'orders', component: OrderDetailsComponent },
+      { path: 'order-address', component: OrderAddressComponent },
+      { path: 'wishing-list', component: WishListComponent },
+      {
+        path: 'profile',
+        component: ProfileComponent,
+        children: [
+          { path: 'edit', component: UserEditProfileComponent },
+          { path: 'change-password', component: UserPasswordComponent },
+          { path: 'addresses', component: UserAddressesComponent },
+          { path: 'delete', component: UserDeleteComponent },
+          { path: '**', component: UserComponent },
+        ],
+      },
+      {
+        path:'address',
+
+        children:[
+          {path:'newAddress', component:OrderAddressComponent},
+          {path:'savedAddresses', component:OrderSavedAddressComponent},
+        ]
+      },
+      { path: 'productItem', redirectTo: 'product', pathMatch: 'full' },
+      { path: 'faq', component: FAQComponent },
     ]
   },
-
-  
-  { path: 'productItem', redirectTo: 'product', pathMatch: 'full' },
-  { path: 'faq', component: FAQComponent },
 
   { path: '**', component: ErrorNotFoundComponent },
 
