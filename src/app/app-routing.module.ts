@@ -20,7 +20,10 @@ import {LoginComponent} from "./login/components/login/login.component";
 import {MainComponent} from "./main/main.component";
 import { RegisterComponent } from './register/register/register.component';
 import { AuthGuard } from './Gaurds/auth.guard';
-
+import { ProductDetailsComponent } from './products/components/product-details/product-details.component';
+import { ContactUsComponent } from './shared/components/contact-us/contact-us.component';
+import { TestDetialsComponent } from './products/components/test-detials/test-detials.component';
+import { AboutUsComponent } from './about-us/about-us.component';
 const routes: Routes = [
   {path: 'login', component: LoginComponent},
   {path: 'register', component: RegisterComponent},
@@ -34,6 +37,11 @@ const routes: Routes = [
       { path: 'orders', component: OrderDetailsComponent,canActivate:[AuthGuard] },
       { path: 'order-address', component: OrderAddressComponent,canActivate:[AuthGuard] },
       { path: 'wishing-list', component: WishListComponent ,canActivate:[AuthGuard]},
+      {path:'product-details/',component:ProductDetailsComponent},
+      {path:'product-detail/:id',component:TestDetialsComponent},
+    
+      {path:'contactUs',component:ContactUsComponent},
+      {path:'aboutUs',component:AboutUsComponent},
       {
         path: 'profile',
         component: ProfileComponent,

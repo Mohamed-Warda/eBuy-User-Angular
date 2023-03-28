@@ -4,6 +4,7 @@ import { ProductsService } from 'src/app/_services/products.service';
 import { NgbPagination } from '@ng-bootstrap/ng-bootstrap';
 import { filter } from 'rxjs';
 import { WishingListService } from 'src/app/_services/wishing-list.service';
+import { Router } from '@angular/router';
 
 //import { NgbAlertModule, NgbModule, NgbPaginationModule } from '@ng-bootstrap/ng-bootstrap';
 
@@ -93,7 +94,7 @@ export class ProductListComponent {
     });
   }
 
-  constructor(private ProductsService: ProductsService, private WishingListService: WishingListService) {}
+  constructor(private ProductsService: ProductsService, private WishingListService: WishingListService, private router: Router) {}
 
   ngOnInit(): void {
     this.ProductsService.getAllProducts().subscribe((res) => {
@@ -115,6 +116,11 @@ export class ProductListComponent {
     }
     this.WishingListService.addToList(id).subscribe(res=>{
     })
+  }
+  
+
+  productDetails(_id:any){
+this.router.navigate(["/product-detail",_id])
   }
   
 }
