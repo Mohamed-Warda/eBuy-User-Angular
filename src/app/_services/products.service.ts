@@ -1,28 +1,36 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class ProductsService {
+  baseurl = 'https://ecommerce-api-6p26.onrender.com/api/v1';
+  // baseurl='http://localhost:8080/api/v1' ;
 
-    baseurl='https://ecommerce-api-6p26.onrender.com/api/v1' ;
- //baseurl='http://localhost:8080/api/v1' ;
-
-
-  constructor(public http:HttpClient) { 
-   
+  private httpOptions = {};
+  constructor(public http: HttpClient) {
+    this.httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        Authorization:
+          'Bearer ' +
+          'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NDFlYzU5ODBhYTc2MTdmYTlmNmQyNTEiLCJpYXQiOjE2ODAwMDQ2MDIsImV4cCI6MTY4Nzc4MDYwMn0.zAHeHXEEMsh8lAc89oD5M8VPkthkxHcqofM66NNq150',
+      }),
+    };
   }
 
-  getAllProducts(){
-    return  this.http.get<any>(`${this.baseurl}/products`);
+  getAllProducts() {
+    return this.http.get<any>(`${this.baseurl}/products`);
     // log all the products
   }
-  getAllCategories(){
-    return  this.http.get<any>(`${this.baseurl}/categories`);
-   
+  getSingelProudect(id: any) {
+    return this.http.get<any>(`${this.baseurl}/products/${id}`);
   }
-
+  getAllCategories() {
+    return this.http.get<any>(`${this.baseurl}/categories`);
+  }
   filterByCategory(category:string){
     // implement this method using /products endpoint and .filter
     
@@ -36,6 +44,30 @@ export class ProductsService {
       return filteredProducts;
 
     });
+  }
+  addToCart(item: any) {
+    return this.http.post(`${this.baseurl}/cart`, item, this.httpOptions);
+  }
+  save(body: any) {
+    return this.http.post(
+      'https://ecommerce-api-6p26.onrender.com/api/v1/reviews',
+      body,
+      this.httpOptions
+    );
+  }
+
+  getReviewes() {
+    return this.http.get(
+      'https://ecommerce-api-6p26.onrender.com/api/v1/reviews'
+    );
+  }
+
+  saveRating(data: any) {
+    return this.http.post(
+      'https://ecommerce-api-6p26.onrender.com/api/v1/reviews',
+      data,
+      this.httpOptions
+    );
   }
 
   // filterByPrice(min:number , max:number){

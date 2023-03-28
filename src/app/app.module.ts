@@ -31,6 +31,8 @@ import {MainComponent} from './main/main.component';
 import {ToastrModule} from 'ngx-toastr';
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {httpInterceptorsProviders} from "./interceptors";
+import { ReactiveFormsModule } from '@angular/forms';
+import { AboutUsComponent } from './about-us/about-us.component';
 
 
 //import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
@@ -43,6 +45,7 @@ import {httpInterceptorsProviders} from "./interceptors";
   declarations: [
     AppComponent,
     MainComponent,
+    AboutUsComponent,
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 
@@ -67,6 +70,7 @@ import {httpInterceptorsProviders} from "./interceptors";
     CheckoutModule,
     LoginModule,
     RegisterModule,
+    ReactiveFormsModule,
 
 
 
