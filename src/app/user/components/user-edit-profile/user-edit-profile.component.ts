@@ -19,7 +19,6 @@ export class UserEditProfileComponent {
       this.user=res.data;
       this.newEmail=this.user.email;
       this.newName=this.user.name;
-      this.newName=this.user.name;
       this.newPhone=this.user.phone? this.user.phone:'';
       
 

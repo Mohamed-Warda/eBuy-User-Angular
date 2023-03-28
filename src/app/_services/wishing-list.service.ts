@@ -11,7 +11,7 @@ export class WishingListService {
   private httpOptions = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json',
-      'Authorization': 'Bearer ' + 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NDBmNTMyMWM0ZmU3ZDU1MjVmZWQ0ZWEiLCJpYXQiOjE2NzkxNTE1MzgsImV4cCI6MTY4NjkyNzUzOH0.YQh7etIV2zdHVafYdIpYw_9r5lAebn0DJzIodMgz9RA'
+      'Authorization': 'Bearer ' + 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NDFlYzU5ODBhYTc2MTdmYTlmNmQyNTEiLCJpYXQiOjE2ODAwMDQ2MDIsImV4cCI6MTY4Nzc4MDYwMn0.zAHeHXEEMsh8lAc89oD5M8VPkthkxHcqofM66NNq150'
     })
   }
   constructor(public http:HttpClient) { 
@@ -31,5 +31,10 @@ export class WishingListService {
   {
   
    return this.http.post(`${this.baseurl}/cart`, item,this.httpOptions)
+  }
+  addToList(prdID:object)
+  {
+    return this.http.post(`${this.baseurl}/wishlist`, prdID,this.httpOptions)
+
   }
 }
