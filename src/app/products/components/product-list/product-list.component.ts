@@ -15,7 +15,7 @@ import { Router } from '@angular/router';
 })
 export class ProductListComponent {
   page: number = 1;
-  pageSize: number = 3;
+  pageSize: number = 4;
   // productsLength: number = 6;
 
   math = Math;
