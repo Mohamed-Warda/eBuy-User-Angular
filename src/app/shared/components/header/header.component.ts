@@ -8,6 +8,7 @@ import { UserService } from 'src/app/_services/user.service';
 })
 export class HeaderComponent {
 
+ 
   user:any='';
   constructor( private UserService:UserService){ 
     this.UserService.getUser().subscribe(res=>{

@@ -53,4 +53,10 @@ export class AuthService {
     this.user = null;
     this.router.navigate(['/login']);
   }
+
+
+  register(user:any){
+    return this.httpClient.post(`${this.baseurl}/signup`, user);
+
+  }
 }

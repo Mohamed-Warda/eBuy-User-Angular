@@ -18,11 +18,38 @@
 		<h1>eBuy SignUp Form</h1>
 		<div class="main-agileinfo">
 			<div class="agileits-top">
+				
 				<form action="#" method="post">
-					<input class="text" type="text" name="Username" placeholder="Full Name" required>
-					<input class="text email" type="email" name="email" placeholder="Email" required="">
-					<input class="text" type="password" name="password" placeholder="Password" required="">
-					<input class="text w3lpass" type="password" name="password" placeholder="Confirm Password" required="">
+					<input class="text" type="text" min="10" [(ngModel)]="name"  name="Username" placeholder="Full Name" required>
+
+
+					<input  class="text email" #em="ngModel" required [(ngModel)]="email" pattern="^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$" type="email" name="email" placeholder="Email" required="">
+
+					<div class="alert w-50 bg-danger" [hidden]="em.valid || em.untouched">
+						<h2 *ngIf="em.errors?.['required']"> Email required</h2>
+						<h2 *ngIf="em.errors?.['pattern']"> Enter Correct Email Format</h2>
+			  
+					</div>
+
+					<input class="text" type="password" #pass="ngModel" required [(ngModel)]="password" minlength="6"
+
+					 name="password" placeholder="Password" required="">
+					<div class="alert w-50 bg-danger"  [hidden]="pass.valid || pass.untouched">
+						<h2 *ngIf="pass.errors?.['required']"> Password required</h2>
+						<h2 *ngIf="pass.errors?.['minlength']"> Password must be at least 6 characters</h2>
+			  
+					</div>
+
+					<input class="text w3lpass" #confirmPassword="ngModel" required [(ngModel)]="confirmPass" type="password" name="password" placeholder="Confirm Password" pattern={{password}}  required>
+
+
+					<div class="alert w-50 bg-danger" [hidden]="confirmPassword.valid || confirmPassword.untouched">
+						<h2 *ngIf="confirmPassword.errors?.['required']">Confirm Password required</h2>
+						<h2 *ngIf="confirmPassword.errors?.['pattern']"> Password Doesn't Match </h2>
+
+					</div>
+
+
 					<div class="wthree-text">
 						<label class="anim">
 							<input type="checkbox" class="checkbox" required="">
@@ -30,14 +57,15 @@
 						</label>
 						<div class="clear"> </div>
 					</div>
-					<input type="submit" value="SIGNUP">
+					<button type="button" (click)="addUser()" class="btn btn-warning w-100 my-3 py-3 font-weight-bold" [disabled]="confirmPassword.invalid || em.invalid" value="SIGNUP"> <h3>SIGN UP</h3>  </button>
+				
 				</form>
 				<p>Don't have an Account? <a routerLink="/login" > Login Now!</a></p>
 			</div>
 		</div>
 		<!-- copyright -->
 		<div class="colorlibcopy-agile">
-			<p>© 2018 eBuy <a href="https://colorlib.com/" target="_blank"> Website</a></p>
+			<p>© 2023 eBuy <a href="https://colorlib.com/" target="_blank"> Website</a></p>
 		</div>
 		<!-- //copyright -->
 		<ul class="colorlib-bubbles">
