@@ -3,6 +3,7 @@ import { IProduct } from 'src/app/_models/iproduct';
 import { ProductsService } from 'src/app/_services/products.service';
 import { NgbPagination } from '@ng-bootstrap/ng-bootstrap';
 import { filter } from 'rxjs';
+import { WishingListService } from 'src/app/_services/wishing-list.service';
 
 //import { NgbAlertModule, NgbModule, NgbPaginationModule } from '@ng-bootstrap/ng-bootstrap';
 
@@ -98,7 +99,7 @@ export class ProductListComponent {
     });
   }
 
-  constructor(private ProductsService: ProductsService) {}
+  constructor(private ProductsService: ProductsService, private WishingListService: WishingListService) {}
 
   ngOnInit(): void {
     this.ProductsService.getAllProducts().subscribe((res) => {
@@ -116,6 +117,14 @@ export class ProductListComponent {
     });
   }
 
-  
+  addToWishList(prdId:any)
+  {
+    let id = {
+      productId:prdId
+    }
+    this.WishingListService.addToList(id).subscribe(res=>{
+      console.log(res)
+    })
+  }
   
 }

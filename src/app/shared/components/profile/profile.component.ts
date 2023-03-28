@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { UserService } from 'src/app/_services/user.service';
 
 @Component({
   selector: 'app-profile',
@@ -6,7 +7,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./profile.component.css']
 })
 export class ProfileComponent {
-
+user:any;
 
   appear:boolean=false;
    changeColor(button:any) {
@@ -22,4 +23,15 @@ export class ProfileComponent {
     // Add active class to clicked button
     button.classList.add('active');
   }
+
+  constructor( private UserService:UserService){ }
+
+  ngOnInit():void
+  {
+    this.UserService.getUser().subscribe(res=>{
+      this.user=res.data;
+    })
+  }
+  
+ 
 }

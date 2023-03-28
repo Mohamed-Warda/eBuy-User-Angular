@@ -253,12 +253,11 @@
         <div
           class="col-lg-4 col-md-6 col-sm-6 pb-1"
           *ngFor="
-            let item of products
+            let item of products 
               | slice : (page - 1) * pageSize : page * pageSize
           "
         >
 
-{{item.imageCover}}
           <div class="product-item bg-light mb-4">
             <div class="product-img position-relative overflow-hidden">
               <img
@@ -269,10 +268,8 @@
                 alt=""
               />
               <div class="product-action">
-                <a class="btn btn-outline-dark btn-square" routerLink=""
-                  ><i class="fa fa-shopping-cart"></i
-                ></a>
-                <a class="btn btn-outline-dark btn-square" routerLink=""
+                
+                <a (click)="addToWishList(item._id)" class="btn btn-outline-dark btn-square" routerLink=""
                   ><i class="far fa-heart"></i
                 ></a>
 
