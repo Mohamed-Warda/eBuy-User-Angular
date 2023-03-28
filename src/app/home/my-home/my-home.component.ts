@@ -14,7 +14,6 @@ export class MyHomeComponent {
   // productsLength: number = 6;
 
   getProduct() {
-    console.log(this.page);
   }
 
   products: IProduct[] = [];
@@ -26,7 +25,6 @@ export class MyHomeComponent {
       filteredProducts = res.data.filter((product: any) => {
         return product.category.name === category;
       });
-      console.log(filteredProducts);
       this.products = filteredProducts;
     });
   }
@@ -39,7 +37,6 @@ export class MyHomeComponent {
           product.priceAfterDiscount >= min && product.priceAfterDiscount <= max
         );
       });
-      console.log(filteredProducts);
       this.products = filteredProducts;
     });
   }
@@ -50,7 +47,6 @@ export class MyHomeComponent {
       filteredProducts = res.data.filter((product: any) => {
         return product.ratingsAverage >= rating;
       });
-      console.log(filteredProducts);
       this.products = filteredProducts;
     });
   }
@@ -61,7 +57,6 @@ export class MyHomeComponent {
       sortedProducts = res.data.sort((a: any, b: any) => {
         return a.priceAfterDiscount - b.priceAfterDiscount;
       });
-      console.log(sortedProducts);
       this.products = sortedProducts;
     });
   }
@@ -72,7 +67,6 @@ export class MyHomeComponent {
       sortedProducts = res.data.sort((a: any, b: any) => {
         return b.priceAfterDiscount - a.priceAfterDiscount;
       });
-      console.log(sortedProducts);
       this.products = sortedProducts;
     });
   }
@@ -82,15 +76,11 @@ export class MyHomeComponent {
   ngOnInit(): void {
     this.ProductsService.getAllProducts().subscribe((res) => {
       this.products = res.data;
-      console.log(this.products);
-      console.log(res.data);
     });
 
     this.ProductsService.getAllCategories().subscribe((res) => {
       this.categories = res.data;
-      console.log(this.categories);
       for (let i = 0; i < this.categories.length; i++) {
-        console.log(this.categories[i].name);
       }
     });
 
