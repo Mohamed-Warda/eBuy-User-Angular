@@ -18,9 +18,11 @@ import { OrderSavedAddressComponent } from './orders/components/order-saved-addr
 import { CheckoutComponent } from './checkout/components/checkout/checkout.component';
 import {LoginComponent} from "./login/components/login/login.component";
 import {MainComponent} from "./main/main.component";
+import { RegisterComponent } from './register/register/register.component';
 
 const routes: Routes = [
   {path: 'login', component: LoginComponent},
+  {path: 'register', component: RegisterComponent},
 
   { path: '', component: MainComponent,
     children: [

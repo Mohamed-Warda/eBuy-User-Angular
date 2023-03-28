@@ -16,6 +16,7 @@ import { OrdersModule } from './orders/orders.module';
 import { CheckoutModule } from './checkout/checkout.module';
 import {LoginModule} from "./login/login.module";
 import { MainComponent } from './main/main.component';
+import { RegisterModule } from './register/register.module';
 
 
 
@@ -60,7 +61,8 @@ import { MainComponent } from './main/main.component';
     NgbAccordion,
     NgbPanel,
     CheckoutModule,
-    LoginModule
+    LoginModule,
+    RegisterModule
 
 
 
