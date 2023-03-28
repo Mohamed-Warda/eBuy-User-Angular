@@ -14,6 +14,8 @@ import { UserModule } from './user/user.module';
 import { FormsModule } from '@angular/forms';
 import { OrdersModule } from './orders/orders.module';
 import { CheckoutModule } from './checkout/checkout.module';
+import {LoginModule} from "./login/login.module";
+import { MainComponent } from './main/main.component';
 
 
 
@@ -29,12 +31,13 @@ import { CheckoutModule } from './checkout/checkout.module';
 @NgModule({
   declarations: [
     AppComponent,
-    
- 
+    MainComponent,
 
-    
 
-        
+
+
+
+
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 
@@ -56,16 +59,16 @@ import { CheckoutModule } from './checkout/checkout.module';
     OrdersModule,
     NgbAccordion,
     NgbPanel,
-    CheckoutModule
-    
-        
-    
-  
+    CheckoutModule,
+    LoginModule
 
 
-    
-  
-    
+
+
+
+
+
+
   ],
   providers: [],
   bootstrap: [AppComponent]
