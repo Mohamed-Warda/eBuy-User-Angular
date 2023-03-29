@@ -26,11 +26,14 @@ export class ProductListComponent {
 
   products: IProduct[] = [];
   categories: IProduct[] = [];
-
+  
+  
+  
   filterByCategory(category: any) {
     let filteredProducts = [];
     this.ProductsService.getAllProducts().subscribe((res) => {
       filteredProducts = res.data.filter((product: any) => {
+          if(product.category == null) return false;
         return product.category.name === category;
       });
       this.products = filteredProducts;
@@ -98,6 +101,7 @@ export class ProductListComponent {
   ngOnInit(): void {
     this.ProductsService.getAllProducts().subscribe((res) => {
       this.products = res.data;
+      console.log(this.products);
     });
 
     this.ProductsService.getAllCategories().subscribe((res) => {
