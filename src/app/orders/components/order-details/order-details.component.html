@@ -178,14 +178,13 @@
         </p>
       </div>
 
-      <div class="row">
-        <div *ngFor="let item of order.cartItems" class="col-6">
+      <div class="d-flex justify-content-start align-items-center">
+        <div *ngFor="let item of order.cartItems" class="">
           <div
             class="d-flex justify-content-start align-items-start gap-3 order-product-card mb-3"
           >
             <img
               [src]="
-                item.product.imageCover?.url ||
                 'https://placehold.co/100x150/png'
               "
               (error)="handleImageError($event)"
@@ -193,7 +192,7 @@
 
             <div class="order-product-details">
               <h6 class="fw-bold">
-                {{ item.product.title.slice(0, 15) }}
+                <!-- {{ item.product.title.slice(0, 15) }} -->
               </h6>
 
               <p class="text-muted pb-2">Quantity : {{ item.quantity }}</p>

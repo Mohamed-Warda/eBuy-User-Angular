@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { OrderService } from 'src/app/_services/order.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-order-address',
@@ -24,14 +25,29 @@ export class OrderAddressComponent {
       detailed.length < 10 ||
       phone.length < 11
     ) {
-      alert('Please fill all fields correctly');
-      return;
+      Swal.fire({
+        icon: 'warning',
+        title: 'Oops..',
+        text: 'Please fill all the fields correctly!',
+        footer: 'Please try again',
+        confirmButtonText: 'Ok',
+        confirmButtonColor: '#ffd333',
+      });
     } else {
       this.orderService
         .sendOrderAddress(alias, detailed, phone)
         .subscribe((res) => {
-          console.log(res);
-          alert(res.message);
+          Swal.fire({
+            icon: 'success',
+            title: 'Success',
+            text: 'Your order has been placed!',
+            confirmButtonText: 'Ok',
+            confirmButtonColor: '#ffd333',
+          }).then((result) => {
+            if (result.isConfirmed) {
+              window.location.href = '/';
+            }
+          });
         });
     }
   }

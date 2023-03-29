@@ -11630,7 +11630,7 @@ h1, h2, h3, h4, h5,
 }
 
 .checkbox-primary input:checked ~ .checkmark:after {
-  color: #e3b04b;
+  color: #ffd333;
 }
 
 .btn {
@@ -11646,25 +11646,25 @@ h1, h2, h3, h4, h5,
 }
 
 .btn.btn-primary {
-  background: #e3b04b !important;
-  border: 1px solid #e3b04b !important;
+  background: #ffd333 !important;
+  border: 1px solid #ffd333 !important;
   color: #fff !important;
 }
 
 .btn.btn-primary:hover {
-  border: 1px solid #e3b04b;
+  border: 1px solid #ffd333;
   background: transparent;
-  color: #e3b04b;
+  color: #ffd333;
 }
 
 .btn.btn-primary.btn-outline-primary {
-  border: 1px solid #e3b04b;
+  border: 1px solid #ffd333;
   background: transparent;
-  color: #e3b04b;
+  color: #ffd333;
 }
 
 .btn.btn-primary.btn-outline-primary:hover {
   border: 1px solid transparent;
-  background: #e3b04b;
+  background: #ffd333;
   color: #fff;
 }

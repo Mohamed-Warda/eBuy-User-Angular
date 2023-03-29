@@ -109,12 +109,7 @@ img {
 
 /*-- end reset --*/
 body {
-  background: #76b852;
-  /* fallback for old browsers */
-  background: -webkit-linear-gradient(to top, #586308, #ecf184);
-  background: -moz-linear-gradient(to top, #586308, #ecf184);
-  background: -o-linear-gradient(to top, #586308, #ecf184);
-  background: linear-gradient(to top, #586308, #ecf184);
+background-color: #ffd333;
   background-size: cover;
   background-attachment: fixed;
   font-family: 'Roboto', sans-serif;
@@ -138,7 +133,7 @@ h1 {
 .main-agileinfo {
   width: 35%;
   margin: 3em auto;
-  background: rgba(0, 0, 0, 0.18);
+  background: #3D464D; 
   background-size: cover;
 }
 
@@ -209,9 +204,9 @@ input.email, input.text.w3lpass {
 input[type="submit"] {
   font-size: .9em;
   color: #fff;
-  background: #76b852;
+  background: #ffd333;
   outline: none;
-  border: 1px solid #76b852;
+  border: 1px solid #ffd333;
   cursor: pointer;
   padding: 0.9em;
   -webkit-appearance: none;
@@ -226,7 +221,7 @@ input[type="submit"]:hover {
   -o-transition: .5s all;
   -ms-transition: .5s all;
   transition: .5s all;
-  background: #8DC26F;
+  background: #e9c12f;
 }
 
 .agileits-top p {
@@ -760,4 +755,8 @@ input.checkbox:checked:after {
   .main-w3layouts {
     padding: 1em 0 0;
   }
+}
+
+input{
+  width: 100% !important; 
 }

@@ -63,10 +63,13 @@ const routes: Routes = [
       },
       { path: 'productItem', redirectTo: 'product', pathMatch: 'full' },
       { path: 'faq', component: FAQComponent },
+      { path: '**', component: ErrorNotFoundComponent },
     ]
   },
 
   { path: '**', component: ErrorNotFoundComponent },
+
+ 
 
 ];
 

@@ -69,6 +69,7 @@ export class ProductsService {
       this.httpOptions
     );
   }
+  
 
   // filterByPrice(min:number , max:number){
   //   // implement this method using /products endpoint and .filter
