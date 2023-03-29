@@ -25,6 +25,10 @@ export class AddressService {
     return this.http.post(`${this.baseurl}`, item,this.httpOptions)
 
   }
+  deleteUserAdress(addressID:any){
+    return this.http.delete(`${this.baseurl}/${addressID}`,this.httpOptions)
+
+  }
 }
 
 

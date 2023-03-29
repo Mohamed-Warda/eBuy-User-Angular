@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { AddressService } from 'src/app/_services/address.service';
 import { UserService } from 'src/app/_services/user.service';
+import Swal from 'sweetalert2';
+
 @Component({
   selector: 'app-user-edit-profile',
   templateUrl: './user-edit-profile.component.html',
@@ -33,8 +35,18 @@ export class UserEditProfileComponent {
     }
     
     this.UserService.updateUser(userData).subscribe(res=>{
-    console.log(res);
-    })
+
+    Swal.fire({
+      icon: 'success',
+      title: 'Updated',
+     
+      confirmButtonText: 'Ok',
+      confirmButtonColor: '#ffd333',
+    }).then((result) => {
+     this.ngOnInit();
+    });
+  });
+    
 
      }
 }

@@ -86,32 +86,14 @@
               <a routerLink="/" class="nav-item nav-link">Home</a>
               <a routerLink="/products" class="nav-item nav-link">Shop</a>
 
-              <a routerLink="/cart" class="nav-item nav-link">Shopping Cart</a>
-              <a routerLink="/orders" class="nav-item nav-link">orders</a>
+            
               <a routerLink="/contactUs" class="nav-item nav-link">Contact</a>
               <a routerLink="/aboutUs" class="nav-item nav-link">About</a>
+              <a class="nav-item nav-link" routerLink="/faq">FAQs</a>
 
-              <div class="nav-item dropdown">
-                <a
-                  href="#"
-                  class="nav-link dropdown-toggle"
-                  data-toggle="dropdown"
-                >
-                  Address
-                  <i class="fa fa-angle-down mt-1"></i>
-                </a>
-                <div class="dropdown-menu bg-primary rounded-0 border-0 m-0">
-                  <a routerLink="/address/newAddress" class="dropdown-item"
-                    >Add New shipping Address
-                  </a>
-                  <a routerLink="/address/savedAddresses" class="dropdown-item"
-                    >Saved Shipping Addresses
-                  </a>
-                </div>
-              </div>
+             
 
-              <a routerLink="/profile" class="nav-item nav-link">Profile</a>
-              <a routerLink="/contact" class="nav-item nav-link">Contact</a>
+           
             </div>
 
             <div class="navbar-nav ml-auto py-0 d-none d-lg-block">
@@ -130,6 +112,14 @@
   </div>
   <!-- Navbar End -->
 </div>
+
+
+
+
+
+
+
+
 
 <!--If He is logged in this will apear-->
 <div *ngIf="user != ''">
@@ -216,11 +206,13 @@
             <div class="navbar-nav mr-auto py-0">
               <a routerLink="/" class="nav-item nav-link">Home</a>
               <a routerLink="/products" class="nav-item nav-link">Shop</a>
+              <a routerLink="/profile" class="nav-item nav-link">Profile</a>
+
               <a routerLink="/cart" class="nav-item nav-link">Shopping Cart</a>
               <a routerLink="/orders" class="nav-item nav-link">orders</a>
               <a routerLink="/contactUs" class="nav-item nav-link">Contact</a>
               <a routerLink="/aboutUs" class="nav-item nav-link">About</a>
-
+              <a class="nav-item nav-link" routerLink="/faq">FAQs</a>
               <div class="nav-item dropdown">
                 <a
                   href="#"
@@ -240,7 +232,6 @@
                 </div>
               </div>
 
-              <a routerLink="/profile" class="nav-item nav-link">Profile</a>
        
             </div>
 
